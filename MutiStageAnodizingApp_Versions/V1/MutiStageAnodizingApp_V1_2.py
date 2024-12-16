@@ -202,7 +202,7 @@ if __name__ == "__main__":
 
     # 结果保存
     df = pd.DataFrame(columns=["Voltage (V)", "Current (A)", "Power (W)"])
-    filename = "data.csv"
+    filename = "../data.csv"
 
     # 阳极氧化实验
     TiO2_nanotubes_anodic_oxidation(df, filename , eTM_3020C)

@@ -501,6 +501,58 @@ class ExperimentGUI:
         except Exception as e:
             logging.exception(f"收集阶段数据时出错: {e}")
 
+    def run_voltage_ramp(self, sample_rate):
+        """
+        执行电压线性变化，采集电压、电流数据，并保存到文件和绘图队列。
+        :param sample_rate: 数据采样频率（Hz）
+        """
+        sample_interval = 1.0 / sample_rate  # 每次采样的时间间隔
+        logging.info(f"开始执行电压线性变化，采样频率: {sample_rate} Hz")
+
+        for stage in self.stages:
+            voltage_start = stage["voltage_start"]
+            voltage_end = stage["voltage_end"]
+            duration = stage["time"]
+
+            # 计算每次电压增量
+            steps = int(duration / sample_interval)
+            voltage_increment = (voltage_end - voltage_start) / steps
+            current_voltage = voltage_start
+
+            # 初始化起始时间
+            start_time = time.time()
+            logging.info(f"阶段开始 - 初始电压: {voltage_start} V, 目标电压: {voltage_end} V, 持续时间: {duration} s")
+
+            for step in range(steps):
+                step_start_time = time.time()  # 每次循环的开始时间
+
+                # 更新电压
+                current_voltage += voltage_increment
+                current_voltage = min(current_voltage, voltage_end) if voltage_increment > 0 else max(current_voltage,
+                                                                                                      voltage_end)
+                self.power_supply.set_volt(current_voltage)
+
+                # 采集数据
+                self.collect_data_for_stage(stage, sample_interval)
+
+                # 动态调整等待时间，确保精确的采样间隔
+                elapsed_time = time.time() - step_start_time
+                sleep_time = max(0, sample_interval - elapsed_time)
+                time.sleep(sleep_time)
+
+                # 检查保护状态
+                protection_state = self.power_supply.read_protection_state()
+                if protection_state != 0:
+                    logging.error(f"保护状态触发: {protection_state}")
+                    messagebox.showerror("Protection Triggered", f"保护状态触发: {protection_state}")
+                    self.is_experiment_running = False
+                    return
+
+            logging.info(f"阶段完成 - 目标电压: {voltage_end} V")
+
+        self.experiment_done_event.set()
+        logging.info("所有阶段的电压变化执行完毕")
+
     def collect_data(self, sample_rate):
         sample_interval = 1.0 / sample_rate
         logging.info(f"开始数据收集，采样频率: {sample_rate} Hz")
@@ -598,7 +650,9 @@ class ExperimentGUI:
         logging.info("存储消费者线程已启动")
 
         # 启动数据收集线程
-        data_thread = threading.Thread(target=self.collect_data, args=(sample_rate,), daemon=True)
+        # data_thread = threading.Thread(target=self.collect_data, args=(sample_rate,), daemon=True)
+        # data_thread.start()
+        data_thread = threading.Thread(target=self.run_voltage_ramp, args=(sample_rate,), daemon=True)
         data_thread.start()
         logging.info("数据收集线程已启动")
 
