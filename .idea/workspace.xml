@@ -96,7 +96,7 @@
       <recent name="E:\WORKS\py\projects\MultiStageAnodizingApp\test\MutiStageAnodizingApp_V1" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.MutiStageAnodizingApp_V1_0">
+  <component name="RunManager" selected="Python.MutiStageAnodizingApp_V1_1">
     <configuration name="MutiStageAnodizingApp_V1_0" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MultiStageAnodizingApp" />
       <option name="ENV_FILES" value="" />
@@ -112,6 +112,29 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MutiStageAnodizingApp_V1/MutiStageAnodizingApp_V1_0.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="MutiStageAnodizingApp_V1_1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MultiStageAnodizingApp" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MutiStageAnodizingApp_V1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MutiStageAnodizingApp_V1/MutiStageAnodizingApp_V1_1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -166,29 +189,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="MutiStageAnodizingApp_V2_6" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="MultiStageAnodizingApp" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MutiStageAnodizingApp_V1" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="E:\WORKS\py\projects\MultiStageAnodizingApp\MutiStageAnodizingApp_V1\MutiStageAnodizingApp_V2_6.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="serialwin32" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MultiStageAnodizingApp" />
       <option name="ENV_FILES" value="" />
@@ -214,11 +214,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.MutiStageAnodizingApp_V1_1" />
         <item itemvalue="Python.MutiStageAnodizingApp_V1_0" />
         <item itemvalue="Python.serialwin32" />
         <item itemvalue="Python.MutiStageAnodizingApp_V2_6 (1)" />
         <item itemvalue="Python.MutiStageAnodizingApp_V2_5" />
-        <item itemvalue="Python.MutiStageAnodizingApp_V2_6" />
       </list>
     </recent_temporary>
   </component>
