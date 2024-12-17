@@ -71,17 +71,39 @@ class ExperimentGUI:
         self.entry_sample_rate.grid(row=4, column=1, padx=5, pady=5, sticky='w')
         self.entry_sample_rate.insert(0, str(Config.DEFAULT_SAMPLE_RATE))
 
-        # Data storage path
+        # PID 参数设置
+        self.label_pid = tk.Label(self.root, text="PID 参数设置:")
+        self.label_pid.grid(row=5, column=0, padx=5, pady=5, sticky='e')
+
+        self.label_kp = tk.Label(self.root, text="Kp:")
+        self.label_kp.grid(row=6, column=0, padx=5, pady=5, sticky='e')
+        self.entry_kp = tk.Entry(self.root)
+        self.entry_kp.grid(row=6, column=1, padx=5, pady=5, sticky='w')
+        self.entry_kp.insert(0, "2.0")  # 默认值
+
+        self.label_ki = tk.Label(self.root, text="Ki:")
+        self.label_ki.grid(row=7, column=0, padx=5, pady=5, sticky='e')
+        self.entry_ki = tk.Entry(self.root)
+        self.entry_ki.grid(row=7, column=1, padx=5, pady=5, sticky='w')
+        self.entry_ki.insert(0, "5.0")  # 默认值
+
+        self.label_kd = tk.Label(self.root, text="Kd:")
+        self.label_kd.grid(row=8, column=0, padx=5, pady=5, sticky='e')
+        self.entry_kd = tk.Entry(self.root)
+        self.entry_kd.grid(row=8, column=1, padx=5, pady=5, sticky='w')
+        self.entry_kd.insert(0, "1.0")  # 默认值
+
+        # 数据存储路径
         self.label_storage_path = tk.Label(self.root, text="Storage Path:")
-        self.label_storage_path.grid(row=5, column=0, padx=5, pady=5, sticky='e')
+        self.label_storage_path.grid(row=9, column=0, padx=5, pady=5, sticky='e')
         self.entry_storage_path = tk.Entry(self.root)
-        self.entry_storage_path.grid(row=5, column=1, padx=5, pady=5, sticky='w')
+        self.entry_storage_path.grid(row=9, column=1, padx=5, pady=5, sticky='w')
         self.button_browse = tk.Button(self.root, text="Browse", command=self.browse_storage_path)
-        self.button_browse.grid(row=5, column=2, padx=5, pady=5, sticky='w')
+        self.button_browse.grid(row=9, column=2, padx=5, pady=5, sticky='w')
 
         # Buttons frame
         self.frame_buttons = tk.Frame(self.root)
-        self.frame_buttons.grid(row=6, column=0, columnspan=3, padx=5, pady=5)
+        self.frame_buttons.grid(row=10, column=0, columnspan=3, padx=5, pady=5)
         self.button_add_stage = tk.Button(self.frame_buttons, text="Add Stage", command=self.add_stage, width=15)
         self.button_add_stage.pack(side='left', padx=5)
         self.button_delete_stage = tk.Button(self.frame_buttons, text="Delete Selected Stage(s)", command=self.delete_stage, width=20)
@@ -93,8 +115,8 @@ class ExperimentGUI:
 
         # Stages Treeview
         self.frame_stages = tk.Frame(self.root)
-        self.frame_stages.grid(row=7, column=0, columnspan=3, padx=5, pady=5, sticky='nsew')
-        self.root.grid_rowconfigure(7, weight=1)
+        self.frame_stages.grid(row=11, column=0, columnspan=3, padx=5, pady=5, sticky='nsew')
+        self.root.grid_rowconfigure(11, weight=1)
         self.root.grid_columnconfigure(1, weight=1)
 
         self.tree_stages = ttk.Treeview(
@@ -122,7 +144,7 @@ class ExperimentGUI:
         self.status_var = tk.StringVar()
         self.status_var.set("Ready")
         self.status_bar = tk.Label(self.root, textvariable=self.status_var, bd=1, relief=tk.SUNKEN, anchor='w')
-        self.status_bar.grid(row=8, column=0, columnspan=3, sticky='we')
+        self.status_bar.grid(row=12, column=0, columnspan=3, sticky='we')
 
     def set_serial_port(self, event):
         """Handle serial port selection."""
@@ -227,7 +249,7 @@ class ExperimentGUI:
             self.update_status("Error: No storage path selected.")
             return
 
-        # Initialize storage manager
+        # 初始化 storage manager
         self.storage_manager = StorageManager(storage_path)
         success, message = self.storage_manager.initialize_storage()
         if not success:
@@ -238,14 +260,25 @@ class ExperimentGUI:
         else:
             self.update_status(message)
 
-        # Initialize data collector
+        # 初始化 data collector
         self.data_collector = DataCollector(self.serial_manager.power_supply, self.storage_manager, self.plot_queue)
 
-        # Create and show plot window, 传递 plot_queue
+        # 创建并显示 plot window
         self.plot_window = PlotWindow(tk.Toplevel(self.root), self.plot_queue)
         logging.info("PlotWindow has been created.")
 
-        # Initialize experiment controller
+        # 读取 PID 参数
+        try:
+            Kp = float(self.entry_kp.get())
+            Ki = float(self.entry_ki.get())
+            Kd = float(self.entry_kd.get())
+        except ValueError:
+            messagebox.showerror("Invalid PID Parameters", "Please enter valid numerical values for Kp, Ki, and Kd.")
+            logging.error("Invalid PID parameters input.")
+            self.update_status("Error: Invalid PID parameters.")
+            return
+
+        # 初始化 experiment_controller 时传递 PID 参数
         self.experiment_controller = ExperimentController(
             self.serial_manager,
             self.stage_manager,
@@ -254,10 +287,15 @@ class ExperimentGUI:
             self.plot_window,
             self.plot_stop_event,
             self.storage_stop_event,
-            self.experiment_done_event
+            self.experiment_done_event,
+            Kp=Kp,
+            Ki=Ki,
+            Kd=Kd
         )
+        logging.info(f"PID parameters set to Kp={Kp}, Ki={Ki}, Kd={Kd}")
+        self.update_status(f"PID parameters set to Kp={Kp}, Ki={Ki}, Kd={Kd}")
 
-        # Get sample rate
+        # 获取采样率
         try:
             sample_rate = float(self.entry_sample_rate.get())
             if sample_rate <= 0:
@@ -268,7 +306,7 @@ class ExperimentGUI:
             self.update_status("Error: Invalid sample rate.")
             return
 
-        # Set operative mode to 1 (enable output)
+        # 设置操作模式为 1（启用输出）
         try:
             self.serial_manager.power_supply.operative_mode(1)
             logging.info("Operative mode set to 1 (output enabled).")
@@ -278,16 +316,16 @@ class ExperimentGUI:
             self.update_status("Error: Failed to set operative mode.")
             return
 
-        # Start the experiment
+        # 启动实验
         self.experiment_controller.start_experiment(sample_rate)
         logging.info("Experiment started.")
         self.update_status("Experiment started.")
 
-        # Start monitoring thread
+        # 启动监控线程
         monitor_thread = threading.Thread(target=self.monitor_experiment, daemon=True)
         monitor_thread.start()
 
-        # Update button states
+        # 更新按钮状态
         self.button_start.config(state='disabled')
         self.button_stop.config(state='normal')
 
