@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74d4878c-f4ba-43c3-9d32-e3728c738bd3" name="Changes" comment="MutiStageAnodizingApp_V2_7.py &#10;   将横坐标改为时间 而不是时间戳">
-      <change afterPath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_7.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_8.py" afterDir="false" />
+    <list default="true" id="74d4878c-f4ba-43c3-9d32-e3728c738bd3" name="Changes" comment="MutiStageAnodizingApp_V2_8.py:&#10;&#10;存储线程优化：在 storage_consumer 方法中，我将 timeout 设置为 0.05，确保线程能够频繁检查队列而不被长时间阻塞。这样可以减少数据存储的延迟。&#10;&#10;电压增量和数据采集：在 run_voltage_ramp 和 collect_data 方法中，计算采样间隔并确保每次采样时间的准确性。通过动态计算 sleep_time，来调整电压变化和数据采集之间的等待时间，减少无效的等待。&#10;&#10;保护状态检查：在每个阶段后，检查电源设备的保护状态。如果保护状态非 0，则立即停止实验并显示错误信息。&#10;&#10;减少不必要的延迟：通过合理使用 time.sleep()，确保数据采集与电压变化之间的间隔准确而不造成过多的等待。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_6.py" beforeDir="false" afterPath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_6.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1/connection_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1/modbus_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_8.py" beforeDir="false" afterPath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_8.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,7 +242,7 @@
       <workItem from="1734325437242" duration="8094000" />
       <workItem from="1734351736692" duration="6356000" />
       <workItem from="1734397855471" duration="63000" />
-      <workItem from="1734397926369" duration="3506000" />
+      <workItem from="1734397926369" duration="8588000" />
     </task>
     <task id="LOCAL-00001" summary="Initial implementation of MutiStageAnodizingApp&#10;&#10;- Developed the basic GUI using tkinter.&#10;- Implemented core logic for multi-stage anodizing process control.&#10;- Integrated basic functionality for serial port communication.&#10;- Basic setup for voltage and current control based on user input.&#10;- Note: Unit tests have not been implemented yet.">
       <option name="closed" value="true" />
@@ -312,7 +308,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734331387647</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="MutiStageAnodizingApp_V2_8.py:&#10;&#10;存储线程优化：在 storage_consumer 方法中，我将 timeout 设置为 0.05，确保线程能够频繁检查队列而不被长时间阻塞。这样可以减少数据存储的延迟。&#10;&#10;电压增量和数据采集：在 run_voltage_ramp 和 collect_data 方法中，计算采样间隔并确保每次采样时间的准确性。通过动态计算 sleep_time，来调整电压变化和数据采集之间的等待时间，减少无效的等待。&#10;&#10;保护状态检查：在每个阶段后，检查电源设备的保护状态。如果保护状态非 0，则立即停止实验并显示错误信息。&#10;&#10;减少不必要的延迟：通过合理使用 time.sleep()，确保数据采集与电压变化之间的间隔准确而不造成过多的等待。">
+      <option name="closed" value="true" />
+      <created>1734401513914</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1734401513914</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,14 +342,15 @@
     <MESSAGE value="更新日志&#10;版本：v1.1&#10;主要更新：&#10;串口连接功能增强&#10;&#10;自动化串口选择：通过 connect_serial 函数，支持根据关键字自动选择串口，避免手动输入，提高用户体验。&#10;波特率和超时设置：串口的波特率和超时时间支持灵活配置，默认值为9600波特率，1秒超时。&#10;电源控制模块化&#10;&#10;引入 PowerSupply 类封装电源控制的功能，包括设置电压、读取电流、功率等参数，简化了电源操作逻辑。&#10;电源保护状态（如过压、过流、过功率等）初始化功能增强，便于实时监控电源的状态。&#10;实验控制功能优化&#10;&#10;在 constant_pressure 函数中，增加了时间、电压、电流、功率实时输出，并将数据保存至CSV文件。&#10;自动生成实验数据图表，使用Seaborn和Matplotlib进行数据可视化，包括电压、电流和功率随时间变化的曲线图。&#10;性能与代码优化&#10;&#10;代码结构优化：将重复代码封装为函数和方法，提升代码的模块化和可读性。&#10;异常处理增强：加强了串口连接的错误处理，防止因连接问题导致程序崩溃。&#10;数据保存与分析功能&#10;&#10;实验数据现在可以自动保存为CSV文件，便于后续分析与存档。&#10;使用 pandas 将数据整理为DataFrame格式，并支持绘制实验过程中的电压、电流和功率曲线图。&#10;其他细节改进&#10;&#10;更加灵活的实验参数配置（例如电压误差范围和采样间隔）以适应不同实验需求。&#10;增加了详细的注释和文档，便于用户理解和修改。&#10;版本兼容性：&#10;与之前版本兼容，继续支持Modbus RTU协议的通信，适用于常见的程控电源设备。&#10;使用方法：&#10;连接串口后，创建 PowerSupply 实例，选择适当的电源地址（默认为 1）。&#10;使用 constant_pressure 函数进行恒压模式下的电压控制实验，设置实验参数（电压、运行时间、数据保存路径等）。&#10;实验数据自动保存为CSV文件，且生成PDF格式的实验图表。" />
     <MESSAGE value="V1.3 版本功能总结&#10;&#10;V1.3版本是本系列的最后版本，涵盖了完整的电源控制、数据采集和实验过程管理，适用于TiO₂纳米管阳极氧化实验。以下是代码的详细功能总结：&#10;&#10;1. 串口连接功能 (connect_serial)&#10;功能描述：该功能允许通过串口与电源设备建立通信连接。支持自动列出所有可用串口，用户可以通过输入关键词选择串口进行连接。默认波特率为9600，超时时间为1秒。&#10;核心功能：&#10;自动扫描可用串口。&#10;支持用户输入选择连接的串口。&#10;异常处理，确保指定串口能够连接。&#10;2. 电源类 (PowerSupply)&#10;功能描述：该类封装了通过Modbus RTU协议与电源设备进行通信的所有操作，包括读取和设置电压、电流、功率等。&#10;核心功能：&#10;read()：读取电源设备的指定寄存器值。&#10;write()：向电源设备写入数据。&#10;V()、A()、W()：分别用于读取和设置电压、电流和功率。&#10;set_volt()：设置电源的电压，并确保电压调整到位，提供实时反馈。&#10;operative_mode()：读取或设置电源的工作模式。&#10;内部处理电源的单位转换（电压、电流、功率的倍数因子）。&#10;3. 数据保存功能 (save_data_to_disk)&#10;功能描述：用于将实验数据（电压、电流、功率）保存到磁盘，数据按时间戳格式记录到CSV文件中，便于后续分析。&#10;核心功能：&#10;格式化时间戳，并将电压、电流和功率数据追加写入文件。&#10;4. 实验过程控制功能&#10;恒电位阳极氧化 (constant_pressure)：&#10;该功能用于在设定的电压下保持恒电位进行阳极氧化。实验时间为指定时长，数据每秒钟采集一次并存储。&#10;参数：实验时间、目标电压、数据记录对象、保存文件路径。&#10;适用于实验中的稳定电压阶段。&#10;电压线性变化阳极氧化 (variable_pressure)：&#10;该功能用于使电压在设定的时间内线性变化（从初始电压到最终电压），每秒调整一次电压，并实时记录数据。&#10;参数：实验时间、最终电压、数据记录对象、保存文件路径。&#10;适用于实验中电压逐步增加或减少的阶段。&#10;5. TiO₂纳米管阳极氧化实验过程 (TiO2_nanotubes_anodic_oxidation)&#10;功能描述：该功能集成了TiO₂纳米管阳极氧化的整个实验流程，包含多个阶段。&#10;实验阶段：&#10;阶段一：从30V电压开始，进行恒电位电解100秒，然后电压线性下降到0V，持续300秒。&#10;阶段二：电压保持在0V，持续300秒。&#10;阶段三：电压从0V逐步升高至50V，持续500秒（0.1V/s），然后保持50V恒电位2小时。&#10;每个阶段的数据（电压、电流、功率）被实时记录并存储。&#10;6. 实验时间追踪&#10;每个实验阶段的开始和结束时间都被记录，确保实验的时长可以精确追踪。&#10;实验结束时输出总时间，便于用户查看实验的整体持续时长。&#10;7. CSV数据记录和实时更新&#10;实验数据（电压、电流、功率）被存储到指定的CSV文件中，便于后续的分析和处理。&#10;数据按时间戳格式存储，并且每秒更新一次，确保实验数据的实时性和准确性。&#10;8. 实验控制与反馈&#10;在每个阶段结束后，系统会输出阶段完成的提示，告知用户当前阶段的进展情况。&#10;电源状态和实验进度通过控制台输出，用户可以随时查看实验的执行情况。" />
     <MESSAGE value="MutiStageAnodizingApp_V2_6.py &#10;   新增 run_voltage_ramp 方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="MutiStageAnodizingApp_V2_6.py &#10;   新增 run_voltage_ramp 方法" />
+    <MESSAGE value="MutiStageAnodizingApp_V2_8.py:&#10;&#10;存储线程优化：在 storage_consumer 方法中，我将 timeout 设置为 0.05，确保线程能够频繁检查队列而不被长时间阻塞。这样可以减少数据存储的延迟。&#10;&#10;电压增量和数据采集：在 run_voltage_ramp 和 collect_data 方法中，计算采样间隔并确保每次采样时间的准确性。通过动态计算 sleep_time，来调整电压变化和数据采集之间的等待时间，减少无效的等待。&#10;&#10;保护状态检查：在每个阶段后，检查电源设备的保护状态。如果保护状态非 0，则立即停止实验并显示错误信息。&#10;&#10;减少不必要的延迟：通过合理使用 time.sleep()，确保数据采集与电压变化之间的间隔准确而不造成过多的等待。" />
+    <option name="LAST_COMMIT_MESSAGE" value="MutiStageAnodizingApp_V2_8.py:&#10;&#10;存储线程优化：在 storage_consumer 方法中，我将 timeout 设置为 0.05，确保线程能够频繁检查队列而不被长时间阻塞。这样可以减少数据存储的延迟。&#10;&#10;电压增量和数据采集：在 run_voltage_ramp 和 collect_data 方法中，计算采样间隔并确保每次采样时间的准确性。通过动态计算 sleep_time，来调整电压变化和数据采集之间的等待时间，减少无效的等待。&#10;&#10;保护状态检查：在每个阶段后，检查电源设备的保护状态。如果保护状态非 0，则立即停止实验并显示错误信息。&#10;&#10;减少不必要的延迟：通过合理使用 time.sleep()，确保数据采集与电压变化之间的间隔准确而不造成过多的等待。" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$modbus_test.coverage" NAME="modbus_test Coverage Results" MODIFIED="1734315351461" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V2_6__1_.coverage" NAME="MutiStageAnodizingApp_V2_6 (1) Coverage Results" MODIFIED="1734331927951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_2.coverage" NAME="MutiStageAnodizingApp_V1_2 Coverage Results" MODIFIED="1734328868606" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_V1" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$.coverage" NAME=" Coverage Results" MODIFIED="1734322571493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_V1" />
-    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V2_8.coverage" NAME="MutiStageAnodizingApp_V2_8 Coverage Results" MODIFIED="1734401242631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V2_8.coverage" NAME="MutiStageAnodizingApp_V2_8 Coverage Results" MODIFIED="1734405966831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_0_test.coverage" NAME="MutiStageAnodizingApp_V1.0_test Coverage Results" MODIFIED="1734248049965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1/V1_0" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp.coverage" NAME="MutiStageAnodizingApp Coverage Results" MODIFIED="1734239588583" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$old_test.coverage" NAME="old_test Coverage Results" MODIFIED="1734315948173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1" />
