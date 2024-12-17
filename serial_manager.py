@@ -1,4 +1,3 @@
-# serial_manager.py
 import serial.tools.list_ports
 import logging
 from power_supply import PowerSupply

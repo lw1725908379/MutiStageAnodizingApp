@@ -1,4 +1,3 @@
-# stage_manager.py
 import logging
 
 class StageManager:

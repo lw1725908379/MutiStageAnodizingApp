@@ -1,5 +1,3 @@
-# exceptions.py
-
 class ModbusConnectionError(Exception):
     """Exception raised when Modbus connection fails."""
     pass

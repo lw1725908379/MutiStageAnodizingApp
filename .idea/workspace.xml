@@ -4,12 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74d4878c-f4ba-43c3-9d32-e3728c738bd3" name="Changes" comment="拆分模块">
-      <change afterPath="$PROJECT_DIR$/pid_controller.py" afterDir="false" />
+    <list default="true" id="74d4878c-f4ba-43c3-9d32-e3728c738bd3" name="Changes" comment="引入PID算法进行电压控制">
+      <change afterPath="$PROJECT_DIR$/control_interface.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/control_strategy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_collector.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_collector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/exceptions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiment_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pid_controller.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/power_supply.py" beforeDir="false" afterPath="$PROJECT_DIR$/power_supply.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serial_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/serial_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stage_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/stage_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/storage_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +91,7 @@
     &quot;Python.test_connection.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/WORKS/py/projects/MultiStageAnodizingApp&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/WORKS/py/projects/MultiStageAnodizingApp/pid&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -91,6 +102,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\WORKS\py\projects\MultiStageAnodizingApp\pid" />
       <recent name="E:\WORKS\py\projects\MultiStageAnodizingApp\test\MutiStageAnodizingApp_V1" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -251,7 +263,10 @@
       <workItem from="1734351736692" duration="6356000" />
       <workItem from="1734397855471" duration="63000" />
       <workItem from="1734397926369" duration="14425000" />
-      <workItem from="1734413827979" duration="3916000" />
+      <workItem from="1734413827979" duration="4336000" />
+      <workItem from="1734431512618" duration="1084000" />
+      <workItem from="1734433604124" duration="811000" />
+      <workItem from="1734440764186" duration="1207000" />
     </task>
     <task id="LOCAL-00001" summary="Initial implementation of MutiStageAnodizingApp&#10;&#10;- Developed the basic GUI using tkinter.&#10;- Implemented core logic for multi-stage anodizing process control.&#10;- Integrated basic functionality for serial port communication.&#10;- Basic setup for voltage and current control based on user input.&#10;- Note: Unit tests have not been implemented yet.">
       <option name="closed" value="true" />
@@ -349,7 +364,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734415102088</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="引入PID算法进行电压控制">
+      <option name="closed" value="true" />
+      <created>1734420385108</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1734420385108</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,10 +402,11 @@
     <MESSAGE value="MutiStageAnodizingApp_V2_8.py:&#10;电源通讯速度限制，暂时将采样速率固定为1HZ。使用collect_data_once_per_second()来采取数据。" />
     <MESSAGE value="MutiStageAnodizingApp_V2_9.py ：&#10;&#10;优化 set_volt 方法：&#10;&#10;减少超时时间和误差范围：&#10;&#10;python&#10;复制代码&#10;def set_volt(self, V_input, error_range: float = 0.1, timeout: int = 30):&#10;    ...&#10;将error_range从0.4 V减少到0.1 V，将timeout从600秒减少到30秒，以加快验证过程。&#10;&#10;增加检查间隔：&#10;&#10;python&#10;复制代码&#10;time.sleep(0.5)  # 增加检查间隔&#10;将检查间隔从0.1秒增加到0.5秒，减少CPU负担。&#10;&#10;重新排列关闭逻辑：&#10;&#10;首先禁用输出模式，然后再设置电压为0：&#10;python&#10;复制代码&#10;def cleanup_and_close(self):&#10;    # 首先禁用输出模式&#10;    if self.serial_manager.power_supply:&#10;        try:&#10;            logging.info(&quot;禁用输出模式以确保安全。&quot;)&#10;            self.serial_manager.power_supply.operative_mode(0)&#10;            logging.info(&quot;输出模式已禁用。&quot;)&#10;        except Exception as e:&#10;            logging.error(f&quot;禁用输出模式时发生错误: {e}&quot;)&#10;    else:&#10;        logging.warning(&quot;无法禁用输出模式，因为 power_supply 是 None。&quot;)&#10;&#10;    # 然后尝试将电压设置为0&#10;    if self.serial_manager.power_supply:&#10;        try:&#10;            logging.info(&quot;将电压设置为0 V以确保安全。&quot;)&#10;            self.serial_manager.power_supply.set_volt(0)&#10;            logging.info(&quot;已将电压设置为0 V。&quot;)&#10;        except Exception as e:&#10;            logging.error(f&quot;设置电压为0时发生错误: {e}&quot;)&#10;    else:&#10;        logging.warning(&quot;无法设置电压为0，因为 power_supply 是 None。&quot;)&#10;&#10;    # 继续后续清理操作...&#10;线程化关闭操作：&#10;&#10;在 on_closing 方法中启动一个新线程，以避免阻塞主线程和冻结GUI：&#10;&#10;python&#10;复制代码&#10;def on_closing(self):&#10;    &quot;&quot;&quot;处理窗口关闭事件，确保安全关闭电源并清理资源。&quot;&quot;&quot;&#10;    if messagebox.askokcancel(&quot;退出&quot;, &quot;您确定要退出程序吗？&quot;):&#10;        logging.info(&quot;程序关闭，开始执行清理操作。&quot;)&#10;&#10;        # 启动一个新线程来处理关闭操作，避免阻塞主线程&#10;        close_thread = threading.Thread(target=self.cleanup_and_close, daemon=True)&#10;        close_thread.start()&#10;定义 cleanup_and_close 方法，在独立线程中执行关闭操作：&#10;&#10;python&#10;复制代码&#10;def cleanup_and_close(self):&#10;    # 关闭逻辑&#10;    ..." />
     <MESSAGE value="拆分模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="拆分模块" />
+    <MESSAGE value="引入PID算法进行电压控制" />
+    <option name="LAST_COMMIT_MESSAGE" value="引入PID算法进行电压控制" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$main.coverage" NAME="main Coverage Results" MODIFIED="1734420114394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$main.coverage" NAME="main Coverage Results" MODIFIED="1734441433693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$modbus_test.coverage" NAME="modbus_test Coverage Results" MODIFIED="1734315351461" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V2_6__1_.coverage" NAME="MutiStageAnodizingApp_V2_6 (1) Coverage Results" MODIFIED="1734331927951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V2_10.coverage" NAME="MutiStageAnodizingApp_V2_10 Coverage Results" MODIFIED="1734409670265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2" />

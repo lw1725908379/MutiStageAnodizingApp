@@ -1,4 +1,3 @@
-# data_collector.py
 import queue
 import logging
 import threading

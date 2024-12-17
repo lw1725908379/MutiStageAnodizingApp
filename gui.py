@@ -1,4 +1,3 @@
-# gui.py
 import tkinter as tk
 from tkinter import messagebox, filedialog, ttk
 import logging
@@ -12,6 +11,8 @@ import threading
 from utils import handle_exception
 from config import Config
 import queue
+
+from control_strategy import LinearStrategy, PIDStrategy, FeedforwardWithFeedbackStrategy
 
 class ExperimentGUI:
     """Main GUI class for the experiment control panel."""
@@ -71,29 +72,33 @@ class ExperimentGUI:
         self.entry_sample_rate.grid(row=4, column=1, padx=5, pady=5, sticky='w')
         self.entry_sample_rate.insert(0, str(Config.DEFAULT_SAMPLE_RATE))
 
-        # PID 参数设置
-        self.label_pid = tk.Label(self.root, text="PID 参数设置:")
-        self.label_pid.grid(row=5, column=0, padx=5, pady=5, sticky='e')
+        # Control mode selection
+        self.label_control_mode = tk.Label(self.root, text="Control Mode:")
+        self.label_control_mode.grid(row=5, column=0, padx=5, pady=5, sticky='e')
+        self.combo_control_mode = ttk.Combobox(self.root, values=["Linear", "PID", "Feedforward"], state="readonly")
+        self.combo_control_mode.grid(row=5, column=1, padx=5, pady=5, sticky='w')
+        self.combo_control_mode.current(0)  # Default to Linear
 
+        # PID parameters (only used if PID is selected)
         self.label_kp = tk.Label(self.root, text="Kp:")
         self.label_kp.grid(row=6, column=0, padx=5, pady=5, sticky='e')
         self.entry_kp = tk.Entry(self.root)
         self.entry_kp.grid(row=6, column=1, padx=5, pady=5, sticky='w')
-        self.entry_kp.insert(0, "2.0")  # 默认值
+        self.entry_kp.insert(0, "2.0")
 
         self.label_ki = tk.Label(self.root, text="Ki:")
         self.label_ki.grid(row=7, column=0, padx=5, pady=5, sticky='e')
         self.entry_ki = tk.Entry(self.root)
         self.entry_ki.grid(row=7, column=1, padx=5, pady=5, sticky='w')
-        self.entry_ki.insert(0, "5.0")  # 默认值
+        self.entry_ki.insert(0, "5.0")
 
         self.label_kd = tk.Label(self.root, text="Kd:")
         self.label_kd.grid(row=8, column=0, padx=5, pady=5, sticky='e')
         self.entry_kd = tk.Entry(self.root)
         self.entry_kd.grid(row=8, column=1, padx=5, pady=5, sticky='w')
-        self.entry_kd.insert(0, "1.0")  # 默认值
+        self.entry_kd.insert(0, "1.0")
 
-        # 数据存储路径
+        # Data storage path
         self.label_storage_path = tk.Label(self.root, text="Storage Path:")
         self.label_storage_path.grid(row=9, column=0, padx=5, pady=5, sticky='e')
         self.entry_storage_path = tk.Entry(self.root)
@@ -249,7 +254,7 @@ class ExperimentGUI:
             self.update_status("Error: No storage path selected.")
             return
 
-        # 初始化 storage manager
+        # Initialize storage manager
         self.storage_manager = StorageManager(storage_path)
         success, message = self.storage_manager.initialize_storage()
         if not success:
@@ -260,42 +265,35 @@ class ExperimentGUI:
         else:
             self.update_status(message)
 
-        # 初始化 data collector
+        # Initialize data collector
         self.data_collector = DataCollector(self.serial_manager.power_supply, self.storage_manager, self.plot_queue)
 
-        # 创建并显示 plot window
+        # Create and show plot window
         self.plot_window = PlotWindow(tk.Toplevel(self.root), self.plot_queue)
         logging.info("PlotWindow has been created.")
 
-        # 读取 PID 参数
-        try:
-            Kp = float(self.entry_kp.get())
-            Ki = float(self.entry_ki.get())
-            Kd = float(self.entry_kd.get())
-        except ValueError:
-            messagebox.showerror("Invalid PID Parameters", "Please enter valid numerical values for Kp, Ki, and Kd.")
-            logging.error("Invalid PID parameters input.")
-            self.update_status("Error: Invalid PID parameters.")
-            return
+        # Get control mode
+        control_mode = self.combo_control_mode.get()
+        if control_mode == "Linear":
+            strategy = LinearStrategy()
+        elif control_mode == "PID":
+            try:
+                Kp = float(self.entry_kp.get())
+                Ki = float(self.entry_ki.get())
+                Kd = float(self.entry_kd.get())
+            except ValueError:
+                messagebox.showerror("Invalid PID Parameters", "Please enter valid numerical values for Kp, Ki, and Kd.")
+                logging.error("Invalid PID parameters input.")
+                self.update_status("Error: Invalid PID parameters.")
+                return
+            strategy = PIDStrategy(Kp, Ki, Kd, output_limits=(0,12))
+            logging.info(f"PID parameters set to Kp={Kp}, Ki={Ki}, Kd={Kd}")
+        elif control_mode == "Feedforward":
+            # 使用前馈+小反馈策略，这里固定Kp=0.1为示例，可根据需要加上输入框调节
+            strategy = FeedforwardWithFeedbackStrategy(Kp=0.1, output_limits=(0,12))
+            logging.info("Using Feedforward+Feedback strategy with Kp=0.1")
 
-        # 初始化 experiment_controller 时传递 PID 参数
-        self.experiment_controller = ExperimentController(
-            self.serial_manager,
-            self.stage_manager,
-            self.storage_manager,
-            self.data_collector,
-            self.plot_window,
-            self.plot_stop_event,
-            self.storage_stop_event,
-            self.experiment_done_event,
-            Kp=Kp,
-            Ki=Ki,
-            Kd=Kd
-        )
-        logging.info(f"PID parameters set to Kp={Kp}, Ki={Ki}, Kd={Kd}")
-        self.update_status(f"PID parameters set to Kp={Kp}, Ki={Ki}, Kd={Kd}")
-
-        # 获取采样率
+        # Get sample rate
         try:
             sample_rate = float(self.entry_sample_rate.get())
             if sample_rate <= 0:
@@ -306,7 +304,7 @@ class ExperimentGUI:
             self.update_status("Error: Invalid sample rate.")
             return
 
-        # 设置操作模式为 1（启用输出）
+        # Set operative mode to 1 (enable output)
         try:
             self.serial_manager.power_supply.operative_mode(1)
             logging.info("Operative mode set to 1 (output enabled).")
@@ -316,16 +314,29 @@ class ExperimentGUI:
             self.update_status("Error: Failed to set operative mode.")
             return
 
-        # 启动实验
+        # Initialize experiment controller
+        self.experiment_controller = ExperimentController(
+            self.serial_manager,
+            self.stage_manager,
+            self.storage_manager,
+            self.data_collector,
+            self.plot_window,
+            self.plot_stop_event,
+            self.storage_stop_event,
+            self.experiment_done_event,
+            control_strategy=strategy
+        )
+
+        # Start the experiment
         self.experiment_controller.start_experiment(sample_rate)
         logging.info("Experiment started.")
         self.update_status("Experiment started.")
 
-        # 启动监控线程
+        # Start monitoring thread
         monitor_thread = threading.Thread(target=self.monitor_experiment, daemon=True)
         monitor_thread.start()
 
-        # 更新按钮状态
+        # Update button states
         self.button_start.config(state='disabled')
         self.button_stop.config(state='normal')
 
@@ -378,7 +389,6 @@ class ExperimentGUI:
         """Handle the window close event, ensuring safe shutdown."""
         if messagebox.askokcancel("Quit", "Are you sure you want to quit?"):
             logging.info("Program closing, starting cleanup operations.")
-            # Start a new thread for cleanup to avoid blocking
             close_thread = threading.Thread(target=self.cleanup_and_close, daemon=True)
             close_thread.start()
 

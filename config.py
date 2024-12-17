@@ -1,4 +1,3 @@
-# config.py
 import logging
 
 class Config:
@@ -37,7 +36,7 @@ class Config:
 
     # Default Settings
     TIMEOUT_READ = 1.0  # seconds
-    DEFAULT_SAMPLE_RATE = 10  # Hz
+    DEFAULT_SAMPLE_RATE = 1  # Hz
 
 # Set up logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
