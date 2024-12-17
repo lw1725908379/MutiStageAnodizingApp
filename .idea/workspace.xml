@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74d4878c-f4ba-43c3-9d32-e3728c738bd3" name="Changes" comment="MutiStageAnodizingApp_V2_8.py:&#10;&#10;存储线程优化：在 storage_consumer 方法中，我将 timeout 设置为 0.05，确保线程能够频繁检查队列而不被长时间阻塞。这样可以减少数据存储的延迟。&#10;&#10;电压增量和数据采集：在 run_voltage_ramp 和 collect_data 方法中，计算采样间隔并确保每次采样时间的准确性。通过动态计算 sleep_time，来调整电压变化和数据采集之间的等待时间，减少无效的等待。&#10;&#10;保护状态检查：在每个阶段后，检查电源设备的保护状态。如果保护状态非 0，则立即停止实验并显示错误信息。&#10;&#10;减少不必要的延迟：通过合理使用 time.sleep()，确保数据采集与电压变化之间的间隔准确而不造成过多的等待。">
+    <list default="true" id="74d4878c-f4ba-43c3-9d32-e3728c738bd3" name="Changes" comment="MutiStageAnodizingApp_V2_8.py:&#10;电源通讯速度限制，暂时将采样速率固定为1HZ。使用collect_data_once_per_second()来采取数据。">
+      <change afterPath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_9.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_8.py" beforeDir="false" afterPath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_8.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +65,7 @@
     "Python.MutiStageAnodizingApp_V2_6 (1).executor": "Run",
     "Python.MutiStageAnodizingApp_V2_7.executor": "Run",
     "Python.MutiStageAnodizingApp_V2_8.executor": "Run",
+    "Python.MutiStageAnodizingApp_V2_9.executor": "Run",
     "Python.add_stages_list_box_test.executor": "Run",
     "Python.experiment_control_test.executor": "Run",
     "Python.modbus_test.executor": "Run",
@@ -95,7 +96,7 @@
       <recent name="E:\WORKS\py\projects\MultiStageAnodizingApp\test\MutiStageAnodizingApp_V1" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.MutiStageAnodizingApp_V2_8">
+  <component name="RunManager" selected="Python.MutiStageAnodizingApp_V2_9">
     <configuration name="MutiStageAnodizingApp_V1_2 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MultiStageAnodizingApp" />
       <option name="ENV_FILES" value="" />
@@ -134,29 +135,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_6.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="MutiStageAnodizingApp_V2_6" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="MultiStageAnodizingApp" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MutiStageAnodizingApp_V1" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="E:\WORKS\py\projects\MultiStageAnodizingApp\MutiStageAnodizingApp_V1\V2\MutiStageAnodizingApp_V2_6.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -211,8 +189,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="MutiStageAnodizingApp_V2_9" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MultiStageAnodizingApp" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_9.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.MutiStageAnodizingApp_V2_9" />
         <item itemvalue="Python.MutiStageAnodizingApp_V2_8" />
         <item itemvalue="Python.MutiStageAnodizingApp_V2_7" />
         <item itemvalue="Python.MutiStageAnodizingApp_V1_2 (1)" />
@@ -242,7 +244,7 @@
       <workItem from="1734325437242" duration="8094000" />
       <workItem from="1734351736692" duration="6356000" />
       <workItem from="1734397855471" duration="63000" />
-      <workItem from="1734397926369" duration="8588000" />
+      <workItem from="1734397926369" duration="10912000" />
     </task>
     <task id="LOCAL-00001" summary="Initial implementation of MutiStageAnodizingApp&#10;&#10;- Developed the basic GUI using tkinter.&#10;- Implemented core logic for multi-stage anodizing process control.&#10;- Integrated basic functionality for serial port communication.&#10;- Basic setup for voltage and current control based on user input.&#10;- Note: Unit tests have not been implemented yet.">
       <option name="closed" value="true" />
@@ -316,7 +318,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734401513914</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="MutiStageAnodizingApp_V2_8.py:&#10;电源通讯速度限制，暂时将采样速率固定为1HZ。使用collect_data_once_per_second()来采取数据。">
+      <option name="closed" value="true" />
+      <created>1734407314450</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1734407314450</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,7 +353,8 @@
     <MESSAGE value="V1.3 版本功能总结&#10;&#10;V1.3版本是本系列的最后版本，涵盖了完整的电源控制、数据采集和实验过程管理，适用于TiO₂纳米管阳极氧化实验。以下是代码的详细功能总结：&#10;&#10;1. 串口连接功能 (connect_serial)&#10;功能描述：该功能允许通过串口与电源设备建立通信连接。支持自动列出所有可用串口，用户可以通过输入关键词选择串口进行连接。默认波特率为9600，超时时间为1秒。&#10;核心功能：&#10;自动扫描可用串口。&#10;支持用户输入选择连接的串口。&#10;异常处理，确保指定串口能够连接。&#10;2. 电源类 (PowerSupply)&#10;功能描述：该类封装了通过Modbus RTU协议与电源设备进行通信的所有操作，包括读取和设置电压、电流、功率等。&#10;核心功能：&#10;read()：读取电源设备的指定寄存器值。&#10;write()：向电源设备写入数据。&#10;V()、A()、W()：分别用于读取和设置电压、电流和功率。&#10;set_volt()：设置电源的电压，并确保电压调整到位，提供实时反馈。&#10;operative_mode()：读取或设置电源的工作模式。&#10;内部处理电源的单位转换（电压、电流、功率的倍数因子）。&#10;3. 数据保存功能 (save_data_to_disk)&#10;功能描述：用于将实验数据（电压、电流、功率）保存到磁盘，数据按时间戳格式记录到CSV文件中，便于后续分析。&#10;核心功能：&#10;格式化时间戳，并将电压、电流和功率数据追加写入文件。&#10;4. 实验过程控制功能&#10;恒电位阳极氧化 (constant_pressure)：&#10;该功能用于在设定的电压下保持恒电位进行阳极氧化。实验时间为指定时长，数据每秒钟采集一次并存储。&#10;参数：实验时间、目标电压、数据记录对象、保存文件路径。&#10;适用于实验中的稳定电压阶段。&#10;电压线性变化阳极氧化 (variable_pressure)：&#10;该功能用于使电压在设定的时间内线性变化（从初始电压到最终电压），每秒调整一次电压，并实时记录数据。&#10;参数：实验时间、最终电压、数据记录对象、保存文件路径。&#10;适用于实验中电压逐步增加或减少的阶段。&#10;5. TiO₂纳米管阳极氧化实验过程 (TiO2_nanotubes_anodic_oxidation)&#10;功能描述：该功能集成了TiO₂纳米管阳极氧化的整个实验流程，包含多个阶段。&#10;实验阶段：&#10;阶段一：从30V电压开始，进行恒电位电解100秒，然后电压线性下降到0V，持续300秒。&#10;阶段二：电压保持在0V，持续300秒。&#10;阶段三：电压从0V逐步升高至50V，持续500秒（0.1V/s），然后保持50V恒电位2小时。&#10;每个阶段的数据（电压、电流、功率）被实时记录并存储。&#10;6. 实验时间追踪&#10;每个实验阶段的开始和结束时间都被记录，确保实验的时长可以精确追踪。&#10;实验结束时输出总时间，便于用户查看实验的整体持续时长。&#10;7. CSV数据记录和实时更新&#10;实验数据（电压、电流、功率）被存储到指定的CSV文件中，便于后续的分析和处理。&#10;数据按时间戳格式存储，并且每秒更新一次，确保实验数据的实时性和准确性。&#10;8. 实验控制与反馈&#10;在每个阶段结束后，系统会输出阶段完成的提示，告知用户当前阶段的进展情况。&#10;电源状态和实验进度通过控制台输出，用户可以随时查看实验的执行情况。" />
     <MESSAGE value="MutiStageAnodizingApp_V2_6.py &#10;   新增 run_voltage_ramp 方法" />
     <MESSAGE value="MutiStageAnodizingApp_V2_8.py:&#10;&#10;存储线程优化：在 storage_consumer 方法中，我将 timeout 设置为 0.05，确保线程能够频繁检查队列而不被长时间阻塞。这样可以减少数据存储的延迟。&#10;&#10;电压增量和数据采集：在 run_voltage_ramp 和 collect_data 方法中，计算采样间隔并确保每次采样时间的准确性。通过动态计算 sleep_time，来调整电压变化和数据采集之间的等待时间，减少无效的等待。&#10;&#10;保护状态检查：在每个阶段后，检查电源设备的保护状态。如果保护状态非 0，则立即停止实验并显示错误信息。&#10;&#10;减少不必要的延迟：通过合理使用 time.sleep()，确保数据采集与电压变化之间的间隔准确而不造成过多的等待。" />
-    <option name="LAST_COMMIT_MESSAGE" value="MutiStageAnodizingApp_V2_8.py:&#10;&#10;存储线程优化：在 storage_consumer 方法中，我将 timeout 设置为 0.05，确保线程能够频繁检查队列而不被长时间阻塞。这样可以减少数据存储的延迟。&#10;&#10;电压增量和数据采集：在 run_voltage_ramp 和 collect_data 方法中，计算采样间隔并确保每次采样时间的准确性。通过动态计算 sleep_time，来调整电压变化和数据采集之间的等待时间，减少无效的等待。&#10;&#10;保护状态检查：在每个阶段后，检查电源设备的保护状态。如果保护状态非 0，则立即停止实验并显示错误信息。&#10;&#10;减少不必要的延迟：通过合理使用 time.sleep()，确保数据采集与电压变化之间的间隔准确而不造成过多的等待。" />
+    <MESSAGE value="MutiStageAnodizingApp_V2_8.py:&#10;电源通讯速度限制，暂时将采样速率固定为1HZ。使用collect_data_once_per_second()来采取数据。" />
+    <option name="LAST_COMMIT_MESSAGE" value="MutiStageAnodizingApp_V2_8.py:&#10;电源通讯速度限制，暂时将采样速率固定为1HZ。使用collect_data_once_per_second()来采取数据。" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$modbus_test.coverage" NAME="modbus_test Coverage Results" MODIFIED="1734315351461" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1" />
@@ -370,6 +381,7 @@
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$experiment_control_test.coverage" NAME="experiment_control_test Coverage Results" MODIFIED="1734242300099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_1_test.coverage" NAME="MutiStageAnodizingApp_V1.1_test Coverage Results" MODIFIED="1734251019200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_5.coverage" NAME="MutiStageAnodizingApp_V1_5 Coverage Results" MODIFIED="1734325065632" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_V1" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V2_9.coverage" NAME="MutiStageAnodizingApp_V2_9 Coverage Results" MODIFIED="1734409336286" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$serialwin32.coverage" NAME="serialwin32 Coverage Results" MODIFIED="1734327003878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv/Lib/site-packages/serial" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$add_stages_list_box_test.coverage" NAME="add_stages_list_box_test Coverage Results" MODIFIED="1734242160138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
   </component>
