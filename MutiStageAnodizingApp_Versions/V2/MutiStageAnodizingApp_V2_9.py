@@ -512,7 +512,7 @@ class DataCollector:
                 return
             timestamp = time.time()
             self.plot_queue.put((timestamp, voltage, current))
-            self.storage_manager.store_data(timestamp, voltage, current)
+            self.storage_manager.store_data()
             logging.debug(f"收集数据: {timestamp}, {voltage}, {current}")
         except Exception as e:
             logging.exception(f"收集实验阶段数据时出错: {e}")

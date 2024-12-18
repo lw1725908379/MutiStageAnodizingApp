@@ -1,8 +1,9 @@
 import queue
 import logging
 import threading
-import time
 from exceptions import DataStorageError
+from experiment_data import ExperimentData
+
 
 class DataCollector:
     """Data Collector for collecting and storing data."""
@@ -24,37 +25,29 @@ class DataCollector:
                 logging.debug("Storage worker received sentinel. Exiting.")
                 break
 
-            # data structure, for example: (timestamp, target_voltage, measured_voltage, control_signal, control_mode, current)
             try:
-                self.storage_manager.store_data(*data)
+                # Pass the ExperimentData object directly
+                self.storage_manager.store_data(data)
                 logging.debug(f"Data stored: {data}")
             except DataStorageError as e:
                 logging.error(f"Error storing data: {e}")
             self.storage_queue.task_done()
 
-    def collect_data_for_stage(self, timestamp, target_voltage, measured_voltage, control_signal, control_mode,
-                               current):
+    def collect_data_for_stage(self, experiment_data: ExperimentData):
         """Collect data from the power supply and enqueue for plotting and storage."""
         try:
-            # Check if voltage and current readings are valid
-            voltage = self.power_supply.get_voltage()
-            if voltage is None:
-                logging.error("Failed to read voltage, skipping this sample.")
-                return
-            current = self.power_supply.get_current()
-            if current is None:
-                logging.error("Failed to read current, skipping this sample.")
-                return
-
-            # Enqueue data for plotting only if plot_queue is not None
+            # Enqueue data for plotting (if plot_queue is not None)
             if self.plot_queue is not None:
-                self.plot_queue.put((timestamp, measured_voltage, current))
+                self.plot_queue.put((
+                    experiment_data.timestamp,
+                    experiment_data.measured_voltage,
+                    experiment_data.current
+                ))
 
-            # Always enqueue data for storage
-            self.storage_queue.put((timestamp, target_voltage, measured_voltage, control_signal, control_mode, current))
+            # Enqueue data for storage
+            self.storage_queue.put(experiment_data)
 
-            logging.debug(
-                f"Collected and enqueued data: {timestamp}, {target_voltage}, {measured_voltage}, {control_signal}, {control_mode}, {current}")
+            logging.debug(f"Collected data: {experiment_data}")
         except Exception as e:
             logging.exception(f"Error collecting data for stage: {e}")
 
