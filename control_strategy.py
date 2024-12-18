@@ -1,6 +1,6 @@
 import time
 from control_interface import IControlStrategy
-
+import logging
 class LinearStrategy(IControlStrategy):
     """A simple strategy that always outputs the setpoint as control signal."""
     def __init__(self):
@@ -68,19 +68,21 @@ class FeedforwardWithFeedbackStrategy(IControlStrategy):
     and then apply a small correction based on the error.
     """
 
-    def __init__(self, Kp=0.05, output_limits=(0, 100)):
+    def __init__(self, Kp=0.01, output_limits=(0, 100)):
         self.setpoint = 0.0
         self.Kp = Kp
         self.output_limits = output_limits
 
     def set_setpoint(self, value: float):
         self.setpoint = value
+        logging.debug(f"Setpoint updated to: {self.setpoint}")
 
     def update(self, measured_value: float) -> float:
         error = self.setpoint - measured_value
         output = self.setpoint + self.Kp * error
         # Limit output
         output = max(self.output_limits[0], min(output, self.output_limits[1]))
+        logging.debug(f"FeedforwardWithFeedbackStrategy updated to: {output}")
         return output
 
     def reset(self):

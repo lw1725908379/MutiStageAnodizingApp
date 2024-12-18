@@ -41,7 +41,6 @@ class ExperimentGUI:
 
     def create_widgets(self):
         """Create and layout the GUI components."""
-        # Serial port selection
         self.label_serial = tk.Label(self.root, text="Select Serial Port:")
         self.label_serial.grid(row=0, column=0, padx=5, pady=5, sticky='e')
 
@@ -50,7 +49,6 @@ class ExperimentGUI:
         self.combo_serial.grid(row=0, column=1, padx=5, pady=5, sticky='w')
         self.combo_serial.bind("<<ComboboxSelected>>", self.set_serial_port)
 
-        # Voltage and time settings
         self.label_voltage_start = tk.Label(self.root, text="Initial Voltage (V):")
         self.label_voltage_start.grid(row=1, column=0, padx=5, pady=5, sticky='e')
         self.entry_voltage_start = tk.Entry(self.root)
@@ -72,14 +70,14 @@ class ExperimentGUI:
         self.entry_sample_rate.grid(row=4, column=1, padx=5, pady=5, sticky='w')
         self.entry_sample_rate.insert(0, str(Config.DEFAULT_SAMPLE_RATE))
 
-        # Control mode selection
         self.label_control_mode = tk.Label(self.root, text="Control Mode:")
         self.label_control_mode.grid(row=5, column=0, padx=5, pady=5, sticky='e')
         self.combo_control_mode = ttk.Combobox(self.root, values=["Linear", "PID", "Feedforward"], state="readonly")
         self.combo_control_mode.grid(row=5, column=1, padx=5, pady=5, sticky='w')
-        self.combo_control_mode.current(0)  # Default to Linear
+        self.combo_control_mode.current(0)
+        self.combo_control_mode.bind("<<ComboboxSelected>>", self.on_control_mode_changed)
 
-        # PID parameters (only used if PID is selected)
+        # PID parameters
         self.label_kp = tk.Label(self.root, text="Kp:")
         self.label_kp.grid(row=6, column=0, padx=5, pady=5, sticky='e')
         self.entry_kp = tk.Entry(self.root)
@@ -98,17 +96,24 @@ class ExperimentGUI:
         self.entry_kd.grid(row=8, column=1, padx=5, pady=5, sticky='w')
         self.entry_kd.insert(0, "1.0")
 
+        # Feedforward K parameter
+        self.label_k_ff = tk.Label(self.root, text="K (Feedforward):")
+        self.label_k_ff.grid(row=9, column=0, padx=5, pady=5, sticky='e')
+        self.entry_k_ff = tk.Entry(self.root)
+        self.entry_k_ff.grid(row=9, column=1, padx=5, pady=5, sticky='w')
+        self.entry_k_ff.insert(0, "0.01")
+
         # Data storage path
         self.label_storage_path = tk.Label(self.root, text="Storage Path:")
-        self.label_storage_path.grid(row=9, column=0, padx=5, pady=5, sticky='e')
+        self.label_storage_path.grid(row=10, column=0, padx=5, pady=5, sticky='e')
         self.entry_storage_path = tk.Entry(self.root)
-        self.entry_storage_path.grid(row=9, column=1, padx=5, pady=5, sticky='w')
+        self.entry_storage_path.grid(row=10, column=1, padx=5, pady=5, sticky='w')
         self.button_browse = tk.Button(self.root, text="Browse", command=self.browse_storage_path)
-        self.button_browse.grid(row=9, column=2, padx=5, pady=5, sticky='w')
+        self.button_browse.grid(row=10, column=2, padx=5, pady=5, sticky='w')
 
         # Buttons frame
         self.frame_buttons = tk.Frame(self.root)
-        self.frame_buttons.grid(row=10, column=0, columnspan=3, padx=5, pady=5)
+        self.frame_buttons.grid(row=11, column=0, columnspan=3, padx=5, pady=5)
         self.button_add_stage = tk.Button(self.frame_buttons, text="Add Stage", command=self.add_stage, width=15)
         self.button_add_stage.pack(side='left', padx=5)
         self.button_delete_stage = tk.Button(self.frame_buttons, text="Delete Selected Stage(s)", command=self.delete_stage, width=20)
@@ -120,8 +125,8 @@ class ExperimentGUI:
 
         # Stages Treeview
         self.frame_stages = tk.Frame(self.root)
-        self.frame_stages.grid(row=11, column=0, columnspan=3, padx=5, pady=5, sticky='nsew')
-        self.root.grid_rowconfigure(11, weight=1)
+        self.frame_stages.grid(row=12, column=0, columnspan=3, padx=5, pady=5, sticky='nsew')
+        self.root.grid_rowconfigure(12, weight=1)
         self.root.grid_columnconfigure(1, weight=1)
 
         self.tree_stages = ttk.Treeview(
@@ -149,7 +154,47 @@ class ExperimentGUI:
         self.status_var = tk.StringVar()
         self.status_var.set("Ready")
         self.status_bar = tk.Label(self.root, textvariable=self.status_var, bd=1, relief=tk.SUNKEN, anchor='w')
-        self.status_bar.grid(row=12, column=0, columnspan=3, sticky='we')
+        self.status_bar.grid(row=13, column=0, columnspan=3, sticky='we')
+
+        # 初始化显示
+        self.on_control_mode_changed(None)
+
+    def on_control_mode_changed(self, event):
+        """Hide or show PID and Feedforward parameters based on the selected control mode."""
+        mode = self.combo_control_mode.get()
+        if mode == "PID":
+            # 显示PID参数
+            self.label_kp.grid()
+            self.entry_kp.grid()
+            self.label_ki.grid()
+            self.entry_ki.grid()
+            self.label_kd.grid()
+            self.entry_kd.grid()
+            # 隐藏Feedforward的K
+            self.label_k_ff.grid_remove()
+            self.entry_k_ff.grid_remove()
+        elif mode == "Feedforward":
+            # 显示Feedforward的K
+            self.label_k_ff.grid()
+            self.entry_k_ff.grid()
+            # 隐藏PID参数
+            self.label_kp.grid_remove()
+            self.entry_kp.grid_remove()
+            self.label_ki.grid_remove()
+            self.entry_ki.grid_remove()
+            self.label_kd.grid_remove()
+            self.entry_kd.grid_remove()
+        else:
+            # Linear 模式下隐藏所有PID和Feedforward参数
+            self.label_kp.grid_remove()
+            self.entry_kp.grid_remove()
+            self.label_ki.grid_remove()
+            self.entry_ki.grid_remove()
+            self.label_kd.grid_remove()
+            self.entry_kd.grid_remove()
+
+            self.label_k_ff.grid_remove()
+            self.entry_k_ff.grid_remove()
 
     def set_serial_port(self, event):
         """Handle serial port selection."""
@@ -289,9 +334,15 @@ class ExperimentGUI:
             strategy = PIDStrategy(Kp, Ki, Kd, output_limits=(0,12))
             logging.info(f"PID parameters set to Kp={Kp}, Ki={Ki}, Kd={Kd}")
         elif control_mode == "Feedforward":
-            # 使用前馈+小反馈策略，这里固定Kp=0.1为示例，可根据需要加上输入框调节
-            strategy = FeedforwardWithFeedbackStrategy(Kp=0.1, output_limits=(0,12))
-            logging.info("Using Feedforward+Feedback strategy with Kp=0.1")
+            try:
+                K_ff = float(self.entry_k_ff.get())
+            except ValueError:
+                messagebox.showerror("Invalid Feedforward K", "Please enter a valid numerical value for K.")
+                logging.error("Invalid Feedforward K input.")
+                self.update_status("Error: Invalid Feedforward K.")
+                return
+            strategy = FeedforwardWithFeedbackStrategy(Kp=K_ff, output_limits=(0,12))
+            logging.info(f"Feedforward K set to {K_ff}")
 
         # Get sample rate
         try:
@@ -324,7 +375,8 @@ class ExperimentGUI:
             self.plot_stop_event,
             self.storage_stop_event,
             self.experiment_done_event,
-            control_strategy=strategy
+            control_strategy=strategy,
+            control_mode=control_mode
         )
 
         # Start the experiment

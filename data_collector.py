@@ -23,17 +23,20 @@ class DataCollector:
             if data is None:  # Sentinel to stop
                 logging.debug("Storage worker received sentinel. Exiting.")
                 break
-            timestamp, voltage, current = data
+
+            # data structure, for example: (timestamp, target_voltage, measured_voltage, control_signal, control_mode, current)
             try:
-                self.storage_manager.store_data(timestamp, voltage, current)
+                self.storage_manager.store_data(*data)
                 logging.debug(f"Data stored: {data}")
             except DataStorageError as e:
                 logging.error(f"Error storing data: {e}")
             self.storage_queue.task_done()
 
-    def collect_data_for_stage(self):
+    def collect_data_for_stage(self, timestamp, target_voltage, measured_voltage, control_signal, control_mode,
+                               current):
         """Collect data from the power supply and enqueue for plotting and storage."""
         try:
+            # Check if voltage and current readings are valid
             voltage = self.power_supply.get_voltage()
             if voltage is None:
                 logging.error("Failed to read voltage, skipping this sample.")
@@ -42,10 +45,16 @@ class DataCollector:
             if current is None:
                 logging.error("Failed to read current, skipping this sample.")
                 return
-            timestamp = time.time()
-            self.plot_queue.put((timestamp, voltage, current))
-            self.storage_queue.put((timestamp, voltage, current))
-            logging.debug(f"Collected and enqueued data: {timestamp}, {voltage}, {current}")
+
+            # Enqueue data for plotting only if plot_queue is not None
+            if self.plot_queue is not None:
+                self.plot_queue.put((timestamp, measured_voltage, current))
+
+            # Always enqueue data for storage
+            self.storage_queue.put((timestamp, target_voltage, measured_voltage, control_signal, control_mode, current))
+
+            logging.debug(
+                f"Collected and enqueued data: {timestamp}, {target_voltage}, {measured_voltage}, {control_signal}, {control_mode}, {current}")
         except Exception as e:
             logging.exception(f"Error collecting data for stage: {e}")
 

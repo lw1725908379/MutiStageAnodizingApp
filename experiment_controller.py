@@ -7,7 +7,7 @@ from queue import Queue
 class ExperimentController:
     """Experiment Controller for managing experiment execution."""
 
-    def __init__(self, serial_manager, stage_manager, storage_manager, data_collector, plot_window, plot_stop_event, storage_stop_event, experiment_done_event, control_strategy):
+    def __init__(self, serial_manager, stage_manager, storage_manager, data_collector, plot_window, plot_stop_event, storage_stop_event, experiment_done_event, control_strategy,control_mode):
         self.serial_manager = serial_manager
         self.stage_manager = stage_manager
         self.storage_manager = storage_manager
@@ -21,6 +21,7 @@ class ExperimentController:
 
         # The injected control strategy
         self.control_strategy = control_strategy
+        self.control_mode = control_mode
 
     def collect_data_with_sample_rate(self, sample_rate):
         """Collect data at a specified sample rate using the chosen control strategy."""
@@ -33,7 +34,8 @@ class ExperimentController:
                 voltage_end = stage["voltage_end"]
                 duration = stage["time"]
 
-                logging.debug(f"Starting stage {stage_idx} - Start: {voltage_start} V, End: {voltage_end} V, Duration: {duration} s")
+                logging.debug(
+                    f"Starting stage {stage_idx} - Start: {voltage_start} V, End: {voltage_end} V, Duration: {duration} s")
 
                 steps = max(1, int(duration * sample_rate))
                 increment = (voltage_end - voltage_start) / steps if steps != 0 else 0.0
@@ -45,11 +47,11 @@ class ExperimentController:
 
                 start_time = time.perf_counter()
 
-                for step in range(steps):
-                    cycle_start = time.perf_counter()
+                last_measured_voltage = voltage_start
+                last_control_signal = voltage_start
+                last_current = 0.0
 
-                    elapsed_time = time.perf_counter() - start_time
-                    # Compute linear target voltage for this step (feedforward)
+                for step in range(steps):
                     target_voltage = voltage_start + increment * step
                     self.control_strategy.set_setpoint(target_voltage)
 
@@ -58,10 +60,26 @@ class ExperimentController:
                         logging.error("Failed to read voltage, skipping this sample.")
                         continue
 
+                    current = self.serial_manager.power_supply.get_current()
+                    if current is None:
+                        logging.error("Failed to read current, skipping this sample.")
+                        continue
+
                     control_signal = self.control_strategy.update(measured_voltage)
                     self.serial_manager.power_supply.set_voltage(control_signal)
 
-                    self.data_collector.collect_data_for_stage()
+                    last_measured_voltage = measured_voltage
+                    last_control_signal = control_signal
+                    last_current = current
+
+                    self.data_collector.collect_data_for_stage(
+                        timestamp=time.time(),
+                        target_voltage=target_voltage,
+                        measured_voltage=measured_voltage,
+                        control_signal=control_signal,
+                        control_mode=self.control_mode,
+                        current=current
+                    )
 
                     # Wait until next sample time
                     next_sample_time = start_time + (step + 1) * sample_interval
@@ -69,11 +87,25 @@ class ExperimentController:
                     if sleep_duration > 0:
                         time.sleep(sleep_duration)
 
-                    logging.debug(f"Stage {stage_idx}, Step {step+1}/{steps}, Target: {target_voltage:.2f} V, Measured: {measured_voltage:.2f} V, Control: {control_signal:.2f} V")
+                    logging.debug(
+                        f"Stage {stage_idx}, Step {step + 1}/{steps}, Target: {target_voltage:.2f} V, Measured: {measured_voltage:.2f} V, Control: {control_signal:.2f} V")
 
                 # Ensure final voltage reached
                 self.serial_manager.power_supply.set_voltage(voltage_end)
-                self.data_collector.collect_data_for_stage()
+
+                final_measured_voltage = self.serial_manager.power_supply.get_voltage() or last_measured_voltage
+                final_current = self.serial_manager.power_supply.get_current() or last_current
+                final_control_signal = voltage_end
+                final_target_voltage = voltage_end
+
+                self.data_collector.collect_data_for_stage(
+                    timestamp=time.time(),
+                    target_voltage=final_target_voltage,
+                    measured_voltage=final_measured_voltage,
+                    control_signal=final_control_signal,
+                    control_mode=self.control_mode,
+                    current=final_current
+                )
 
                 logging.info(f"Completed data collection for stage {stage_idx}.")
 
