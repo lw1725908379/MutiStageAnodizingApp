@@ -173,7 +173,7 @@ Timestamp,TargetVoltage,MeasuredVoltage,ControlSignal,ControlMode,Current,Feedfo
 ```
 
 ### Real-Time Plot
-![Sample Plot](example_plot.png)
+![img.png](img.png)![Sample Plot](example_plot.png)
 
 ---
 
