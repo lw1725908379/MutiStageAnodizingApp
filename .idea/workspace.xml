@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74d4878c-f4ba-43c3-9d32-e3728c738bd3" name="Changes" comment="Enhancements for StageManager module:&#10;- Added input validation for stage creation to ensure positive voltage and time values.&#10;- Improved error handling for invalid stage indices during deletion.&#10;- Added detailed docstrings for all methods.&#10;- Enhanced logging for better debugging and tracking of stage operations." />
+    <list default="true" id="74d4878c-f4ba-43c3-9d32-e3728c738bd3" name="Changes" comment="Enhancements for exception handling function:&#10;- Improved logging of exception context and details.&#10;- Added debug-level stack trace logging using `exc_info` for better debugging.&#10;- Enhanced docstrings for clarity and maintainability.">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -262,7 +265,7 @@
       <workItem from="1734534241440" duration="17000" />
       <workItem from="1734602011526" duration="1885000" />
       <workItem from="1734603923631" duration="150000" />
-      <workItem from="1734604082833" duration="5145000" />
+      <workItem from="1734604082833" duration="6318000" />
     </task>
     <task id="LOCAL-00001" summary="Initial implementation of MutiStageAnodizingApp&#10;&#10;- Developed the basic GUI using tkinter.&#10;- Implemented core logic for multi-stage anodizing process control.&#10;- Integrated basic functionality for serial port communication.&#10;- Basic setup for voltage and current control based on user input.&#10;- Note: Unit tests have not been implemented yet.">
       <option name="closed" value="true" />
@@ -440,7 +443,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734609221033</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Enhancements for StorageManager module:&#10;- Added storage path validation during initialization.&#10;- Improved error handling and logging for file operations.&#10;- Extended CSV fields to include control parameters for Feedforward and PID modes.&#10;- Added detailed docstrings for improved documentation.&#10;- Ensured proper resource cleanup during file close operations.">
+      <option name="closed" value="true" />
+      <created>1734609402555</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1734609402555</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Enhancements for exception handling function:&#10;- Improved logging of exception context and details.&#10;- Added debug-level stack trace logging using `exc_info` for better debugging.&#10;- Enhanced docstrings for clarity and maintainability.">
+      <option name="closed" value="true" />
+      <created>1734609488869</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1734609488869</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,7 +499,9 @@
     <MESSAGE value="PlotWindow 优化内容&#10;实时绘图功能增强&#10;&#10;支持多种曲线绘制（电压、电流、功率），并通过 matplotlib 子图进行清晰展示。&#10;子图布局优化，增加了标题、标签以及网格，提升了可视化效果。&#10;实现实时绘图时的动态缩放和刷新（relim 和 autoscale_view），确保绘图范围随数据更新调整。&#10;时间轴格式优化&#10;&#10;增加自定义时间格式化功能，通过 FuncFormatter 将时间转换为 hh:mm:ss 格式，便于用户直观查看实验时间。&#10;线程安全性&#10;&#10;添加了锁机制（threading.Lock），保证多线程同时操作共享资源（self.times, self.voltages, self.currents, self.powers）时的线程安全，避免数据竞争或崩溃问题。&#10;数据处理优化&#10;&#10;通过 deque 数据结构存储历史数据，支持高效的插入和删除操作，同时限制最大存储数量（1000个点），避免内存占用过大。&#10;数据队列中的时间戳经过标准化处理（normalized_time），以起始时间为基准，让绘图更具可读性。&#10;更新逻辑优化&#10;&#10;使用 Tkinter 的 after 方法设置定时更新，确保实时性，同时与 GUI 主线程完美兼容。&#10;支持从数据队列（plot_queue）中非阻塞地提取数据，避免阻塞 GUI 的运行。&#10;关闭功能&#10;&#10;增加 close() 方法，在关闭窗口时安全销毁资源，避免内存泄漏或线程未终止的问题。&#10;日志记录&#10;&#10;增强日志记录，详细记录每次数据更新和窗口初始化、关闭等过程，为调试和监控提供支持。" />
     <MESSAGE value="Enhancements for SerialManager module:&#10;- Added detailed docstrings for all methods.&#10;- Improved error handling for connection and disconnection processes.&#10;- Enhanced logging for debugging and monitoring.&#10;- Cleaned up resources after disconnection to avoid leaks.&#10;- Simplified and optimized serial port listing logic." />
     <MESSAGE value="Enhancements for StageManager module:&#10;- Added input validation for stage creation to ensure positive voltage and time values.&#10;- Improved error handling for invalid stage indices during deletion.&#10;- Added detailed docstrings for all methods.&#10;- Enhanced logging for better debugging and tracking of stage operations." />
-    <option name="LAST_COMMIT_MESSAGE" value="Enhancements for StageManager module:&#10;- Added input validation for stage creation to ensure positive voltage and time values.&#10;- Improved error handling for invalid stage indices during deletion.&#10;- Added detailed docstrings for all methods.&#10;- Enhanced logging for better debugging and tracking of stage operations." />
+    <MESSAGE value="Enhancements for StorageManager module:&#10;- Added storage path validation during initialization.&#10;- Improved error handling and logging for file operations.&#10;- Extended CSV fields to include control parameters for Feedforward and PID modes.&#10;- Added detailed docstrings for improved documentation.&#10;- Ensured proper resource cleanup during file close operations." />
+    <MESSAGE value="Enhancements for exception handling function:&#10;- Improved logging of exception context and details.&#10;- Added debug-level stack trace logging using `exc_info` for better debugging.&#10;- Enhanced docstrings for clarity and maintainability." />
+    <option name="LAST_COMMIT_MESSAGE" value="Enhancements for exception handling function:&#10;- Improved logging of exception context and details.&#10;- Added debug-level stack trace logging using `exc_info` for better debugging.&#10;- Enhanced docstrings for clarity and maintainability." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$main.coverage" NAME="main Coverage Results" MODIFIED="1734533534076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
