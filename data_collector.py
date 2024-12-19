@@ -12,7 +12,7 @@ class DataCollector:
         self.power_supply = power_supply
         self.storage_manager = storage_manager
         self.plot_queue = plot_queue
-        self.storage_queue = queue.Queue()
+        self.storage_queue = queue.Queue(maxsize=1000)
         self.storage_thread = threading.Thread(target=self._storage_worker, daemon=True)
         self.storage_thread.start()
         logging.debug("DataCollector initialized and storage worker thread started.")

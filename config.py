@@ -1,6 +1,11 @@
 import logging
 
 class Config:
+    """
+    Configuration class for the power supply system.
+    Contains all relevant constants, default settings, and register addresses.
+    """
+
     # Serial Communication Settings
     BAUD_RATE = 9600
     TIMEOUT = 1  # seconds
@@ -38,5 +43,25 @@ class Config:
     TIMEOUT_READ = 1.0  # seconds
     DEFAULT_SAMPLE_RATE = 1  # Hz
 
-# Set up logging
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+    # Set up logging
+    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
+    @staticmethod
+    def update_config(attribute, value):
+        if hasattr(Config, attribute):
+            expected_type = type(getattr(Config, attribute))
+            if not isinstance(value, expected_type):
+                raise TypeError(
+                    f"{attribute} expects a value of type {expected_type.__name__}, got {type(value).__name__}")
+            setattr(Config, attribute, value)
+            logging.info(f"Configuration updated: {attribute} = {value}")
+        else:
+            raise AttributeError(f"{attribute} is not a valid configuration key.")
+
+    @staticmethod
+    def load_from_file(file_path):
+        with open(file_path, 'r') as file:
+            config_data = json.load(file)
+            for key, value in config_data.items():
+                Config.update_config(key, value)
+
