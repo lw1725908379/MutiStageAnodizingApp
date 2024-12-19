@@ -4,25 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74d4878c-f4ba-43c3-9d32-e3728c738bd3" name="Changes" comment="gui代码优化 helper函数提取">
+    <list default="true" id="74d4878c-f4ba-43c3-9d32-e3728c738bd3" name="Changes" comment="feat: 优化 ExperimentController，提高采样精度、数据采集稳定性和线程并发管理&#10;- 引入 sched.scheduler 实现精确采样间隔&#10;- 重构采样逻辑，增加容错机制和日志记录&#10;- 改进线程管理，提升数据存储和实验监控的可靠性&#10;- 清理冗余代码，提高代码可读性&#10;&#10;&#10;feat: Optimize ExperimentController for precise timing, robust data collection, and improved concurrency&#10;- Added sched.scheduler for accurate sampling&#10;- Refactored sample collection logic for modularity and error handling&#10;- Improved thread management for data storage and experiment monitoring&#10;- Enhanced logging for better debugging and monitoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V1/MutiStageAnodizingApp_V1_0.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V1/MutiStageAnodizingApp_V1_1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V1/MutiStageAnodizingApp_V1_2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V1/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_3.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_4.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_5.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_6.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_7.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_8.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_9.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_collector.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_collector.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiment_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_controller.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -282,7 +265,7 @@
       <workItem from="1734534241440" duration="17000" />
       <workItem from="1734602011526" duration="1885000" />
       <workItem from="1734603923631" duration="150000" />
-      <workItem from="1734604082833" duration="1262000" />
+      <workItem from="1734604082833" duration="2782000" />
     </task>
     <task id="LOCAL-00001" summary="Initial implementation of MutiStageAnodizingApp&#10;&#10;- Developed the basic GUI using tkinter.&#10;- Implemented core logic for multi-stage anodizing process control.&#10;- Integrated basic functionality for serial port communication.&#10;- Basic setup for voltage and current control based on user input.&#10;- Note: Unit tests have not been implemented yet.">
       <option name="closed" value="true" />
@@ -412,7 +395,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734533897038</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="feat: 优化 ExperimentController，提高采样精度、数据采集稳定性和线程并发管理&#10;- 引入 sched.scheduler 实现精确采样间隔&#10;- 重构采样逻辑，增加容错机制和日志记录&#10;- 改进线程管理，提升数据存储和实验监控的可靠性&#10;- 清理冗余代码，提高代码可读性&#10;&#10;&#10;feat: Optimize ExperimentController for precise timing, robust data collection, and improved concurrency&#10;- Added sched.scheduler for accurate sampling&#10;- Refactored sample collection logic for modularity and error handling&#10;- Improved thread management for data storage and experiment monitoring&#10;- Enhanced logging for better debugging and monitoring">
+      <option name="closed" value="true" />
+      <created>1734605666219</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1734605666219</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -446,7 +437,8 @@
     <MESSAGE value="引入Feedforward + small feedback strategy算法进行电压控制" />
     <MESSAGE value="主要功能改进&#10;批量实验自动化：&#10;&#10;新增 batch_experiment_runner.py，实现了从 experiment_combinations.xlsx 文件中批量读取实验参数并自动运行实验。&#10;自动执行实验并存储实验结果，替代手工 GUI 输入参数的繁琐操作。&#10;解决了数据存储重复覆盖的问题，每次实验存储独立的 .csv 文件，文件名带有时间戳。&#10;数据采集功能增强：&#10;&#10;为采集数据新增了对 Feedforward 和 PID 控制策略参数的支持。&#10;数据采集中动态支持 Feedforward_Kp 和 PID_Kp, PID_Ki, PID_Kd，并区分这两类参数。&#10;修改数据存储逻辑，增加了 CSV 文件的表头，支持存储完整控制参数和实验数据。&#10;数据采集参数封装：&#10;&#10;引入了 ExperimentData 数据类，将 collect_data_for_stage 方法中的参数简化为单个对象传递，提高了代码的可读性和维护性。&#10;数据封装方式使新增字段更加灵活。&#10;机器学习自适应控制框架的初步准备：&#10;&#10;设计了一个自学习算法框架，为自动调节 Feedforward_Kp 提供基础。&#10;定义了实验数据收集格式和步骤，为后续模型训练和验证奠定了基础。&#10;2. 具体修改点&#10;(1) 新增文件&#10;batch_experiment_runner.py：&#10;&#10;负责批量执行实验，读取 Excel 文件的实验参数并自动运行所有实验。&#10;每次实验完成后存储数据，确保实验结果不被覆盖。&#10;支持自动添加延迟，防止硬件因过度使用而出现问题。&#10;experiment_data.py：&#10;&#10;定义了 ExperimentData 数据类，用于封装实验数据，简化了数据采集方法的参数传递。&#10;(2) 修改文件&#10;1. data_collector.py&#10;修改 collect_data_for_stage 方法：&#10;接收 ExperimentData 对象作为参数，减少方法签名的复杂性。&#10;支持存储 Feedforward_Kp 和 PID 参数（PID_Kp, PID_Ki, PID_Kd）。&#10;2. storage_manager.py&#10;修改 initialize_storage 方法：&#10;添加 CSV 表头，包括 Feedforward_Kp 和 PID 参数。&#10;修改 store_data 方法：&#10;支持存储不同控制策略的完整参数。&#10;3. experiment_controller.py&#10;修改 collect_data_with_sample_rate 方法：&#10;动态提取控制策略的参数（如 Feedforward_Kp 或 PID_Kp, PID_Ki, PID_Kd）。&#10;通过 ExperimentData 对象传递实验数据。&#10;4. control_strategy.py&#10;修改 FeedforwardWithFeedbackStrategy 和 PIDStrategy：&#10;确保每种控制策略的参数（如 Kp, Ki, Kd）正确声明，并与其他策略参数区分开来。&#10;(3) 新增功能的测试计划&#10;为确保程序的稳定性和新增功能的正确性，定义了以下测试计划：&#10;&#10;批量实验测试：&#10;&#10;使用不同的 Excel 文件配置组合实验（包含 Feedforward 和 PID 控制策略）。&#10;验证每次实验的执行过程是否符合预期，实验数据是否被正确存储。&#10;数据采集与存储测试：&#10;&#10;检查生成的 .csv 文件，确保数据列完整，Feedforward_Kp 和 PID 参数分别对应正确的控制策略。&#10;验证 ExperimentData 封装后的数据采集逻辑是否正确。&#10;控制策略参数支持测试：&#10;&#10;测试所有控制策略（Linear, Feedforward, PID），确保参数动态传递并存储。&#10;检查日志，确保记录的参数与运行的控制策略一致。&#10;异常处理测试：&#10;&#10;模拟数据采集失败、存储失败等场景，验证日志和错误处理是否到位。" />
     <MESSAGE value="gui代码优化 helper函数提取" />
-    <option name="LAST_COMMIT_MESSAGE" value="gui代码优化 helper函数提取" />
+    <MESSAGE value="feat: 优化 ExperimentController，提高采样精度、数据采集稳定性和线程并发管理&#10;- 引入 sched.scheduler 实现精确采样间隔&#10;- 重构采样逻辑，增加容错机制和日志记录&#10;- 改进线程管理，提升数据存储和实验监控的可靠性&#10;- 清理冗余代码，提高代码可读性&#10;&#10;&#10;feat: Optimize ExperimentController for precise timing, robust data collection, and improved concurrency&#10;- Added sched.scheduler for accurate sampling&#10;- Refactored sample collection logic for modularity and error handling&#10;- Improved thread management for data storage and experiment monitoring&#10;- Enhanced logging for better debugging and monitoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 优化 ExperimentController，提高采样精度、数据采集稳定性和线程并发管理&#10;- 引入 sched.scheduler 实现精确采样间隔&#10;- 重构采样逻辑，增加容错机制和日志记录&#10;- 改进线程管理，提升数据存储和实验监控的可靠性&#10;- 清理冗余代码，提高代码可读性&#10;&#10;&#10;feat: Optimize ExperimentController for precise timing, robust data collection, and improved concurrency&#10;- Added sched.scheduler for accurate sampling&#10;- Refactored sample collection logic for modularity and error handling&#10;- Improved thread management for data storage and experiment monitoring&#10;- Enhanced logging for better debugging and monitoring" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$main.coverage" NAME="main Coverage Results" MODIFIED="1734533534076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
