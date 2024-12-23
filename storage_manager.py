@@ -23,7 +23,10 @@ class StorageManager:
         self.file_path = None
         self.file = None
         self.writer = None
+        self._is_data_saved = False
 
+    def is_data_saved(self):
+        return self._is_data_saved
     def initialize_storage(self):
         """
         Initialize the storage file for data saving.
@@ -85,6 +88,7 @@ class StorageManager:
                 experiment_data.pid_ki,
                 experiment_data.pid_kd
             ])
+            self._is_data_saved = True
             logging.debug(f"Data stored: {experiment_data}")
         except Exception as e:
             logging.error(f"Error storing data: {e}")

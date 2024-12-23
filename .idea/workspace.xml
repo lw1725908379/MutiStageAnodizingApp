@@ -4,9 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74d4878c-f4ba-43c3-9d32-e3728c738bd3" name="Changes" comment="Enhancements for exception handling function:&#10;- Improved logging of exception context and details.&#10;- Added debug-level stack trace logging using `exc_info` for better debugging.&#10;- Enhanced docstrings for clarity and maintainability.">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="74d4878c-f4ba-43c3-9d32-e3728c738bd3" name="Changes" comment="README.md 添加">
+      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/draw_kp_effect_on_feedback_control.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/system_design/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/system_design/system_architecture_design/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/system_design/system_architecture_design/system_architecture_design.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/system_design/system_workflow_design/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/system_design/system_workflow_design/system_workflow_design.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/uml/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/uml/data_flow_diagram/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/uml/data_flow_diagram/experimental_control_execution/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/uml/data_flow_diagram/experimental_control_execution/experimental_control_execution.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/uml/data_flow_diagram/experimental_parameter_generation/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/uml/data_flow_diagram/experimental_parameter_generation/experimental_parameter_generation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/uml/data_flow_diagram/experimental_results_analysis_and_optimization/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/uml/data_flow_diagram/experimental_results_analysis_and_optimization/experimental_results_analysis_and_optimization.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/uml/data_flow_diagram/real-time_drawing/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/uml/data_flow_diagram/real-time_drawing/real-time_drawing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/uml/data_flow_diagram/single_producer_multi_consumer_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/uml/data_flow_diagram/single_producer_multi_consumer_model/single_producer_multi_consumer_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/uml/data_flow_diagram/uml_moduls/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/draws/uml/data_flow_diagram/uml_moduls/uml_modules.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/experiment_parameters_collection.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/run_experiments.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/batch_experiment_runner.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment_combinations.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/storage_manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,57 +66,75 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python tests.Python tests for set_volt_test.TestPowerSupplySetVolt.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for set_volt_test.TestPowerSupplySetVolt.test_set_volt_protection_triggered.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for set_volt_test.TestPowerSupplySetVolt.test_set_volt_success.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_powersupply.TestPowerSupply.test_set_volt_timeout.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MSAA1.2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MSAA_test1.0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V1.0 (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V1.0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V1.0_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V1.1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V1.1_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V1.3.1_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V1.3.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V1.3_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V1.4.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V1.5.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V1_1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V1_2 (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V1_2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V1_5.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V2_10.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V2_6 (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V2_7.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V2_8.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MutiStageAnodizingApp_V2_9.executor&quot;: &quot;Run&quot;,
-    &quot;Python.add_stages_list_box_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.batch_experiment_runner.executor&quot;: &quot;Run&quot;,
-    &quot;Python.experiment_control_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.gui.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.modbus_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.old_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.serialwin32.executor&quot;: &quot;Run&quot;,
-    &quot;Python.temp.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test_connection.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/WORKS/py/projects/MultiStageAnodizingApp&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests for set_volt_test.TestPowerSupplySetVolt.executor": "Run",
+    "Python tests.Python tests for set_volt_test.TestPowerSupplySetVolt.test_set_volt_protection_triggered.executor": "Run",
+    "Python tests.Python tests for set_volt_test.TestPowerSupplySetVolt.test_set_volt_success.executor": "Run",
+    "Python tests.Python tests for test_powersupply.TestPowerSupply.test_set_volt_timeout.executor": "Run",
+    "Python.Drawing_feedback (1).executor": "Run",
+    "Python.Feedforward_Feedback_Voltage_Control.executor": "Run",
+    "Python.MSAA1.2.executor": "Run",
+    "Python.MSAA_test1.0.executor": "Run",
+    "Python.MutiStageAnodizingApp.executor": "Run",
+    "Python.MutiStageAnodizingApp_V1.0 (1).executor": "Run",
+    "Python.MutiStageAnodizingApp_V1.0.executor": "Run",
+    "Python.MutiStageAnodizingApp_V1.0_test.executor": "Run",
+    "Python.MutiStageAnodizingApp_V1.1.executor": "Run",
+    "Python.MutiStageAnodizingApp_V1.1_test.executor": "Run",
+    "Python.MutiStageAnodizingApp_V1.3.1_test.executor": "Run",
+    "Python.MutiStageAnodizingApp_V1.3.executor": "Run",
+    "Python.MutiStageAnodizingApp_V1.3_test.executor": "Run",
+    "Python.MutiStageAnodizingApp_V1.4.executor": "Run",
+    "Python.MutiStageAnodizingApp_V1.5.executor": "Run",
+    "Python.MutiStageAnodizingApp_V1_0.executor": "Run",
+    "Python.MutiStageAnodizingApp_V1_1.executor": "Run",
+    "Python.MutiStageAnodizingApp_V1_2 (1).executor": "Run",
+    "Python.MutiStageAnodizingApp_V1_2.executor": "Run",
+    "Python.MutiStageAnodizingApp_V1_5.executor": "Run",
+    "Python.MutiStageAnodizingApp_V2_10.executor": "Run",
+    "Python.MutiStageAnodizingApp_V2_6 (1).executor": "Run",
+    "Python.MutiStageAnodizingApp_V2_7.executor": "Run",
+    "Python.MutiStageAnodizingApp_V2_8.executor": "Run",
+    "Python.MutiStageAnodizingApp_V2_9.executor": "Run",
+    "Python.add_stages_list_box_test.executor": "Run",
+    "Python.batch_experiment_runner.executor": "Run",
+    "Python.experiment_control_test.executor": "Run",
+    "Python.experiment_parameters_collection (1).executor": "Run",
+    "Python.experiment_parameters_collection.executor": "Run",
+    "Python.experiment_parameters_csv (1).executor": "Run",
+    "Python.experiment_parameters_csv.executor": "Run",
+    "Python.experimental_control_execution.executor": "Run",
+    "Python.experimental_parameter_generation.executor": "Run",
+    "Python.experimental_results_analysis_and_optimization.executor": "Run",
+    "Python.gui.executor": "Run",
+    "Python.kp_effect_on_feedback_control.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.modbus_test.executor": "Run",
+    "Python.old_test.executor": "Run",
+    "Python.real-time_drawing.executor": "Run",
+    "Python.run_experiments.executor": "Run",
+    "Python.serialwin32.executor": "Run",
+    "Python.single_producer_multi_consumer_model.executor": "Run",
+    "Python.system_architecture_design.executor": "Run",
+    "Python.system_workflow_design.executor": "Run",
+    "Python.temp (1).executor": "Run",
+    "Python.temp.executor": "Run",
+    "Python.test_connection.executor": "Run",
+    "Python.uml_modules (1).executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "E:/WORKS/py/projects/MultiStageAnodizingApp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\WORKS\py\projects\MultiStageAnodizingApp" />
@@ -96,15 +142,15 @@
       <recent name="E:\WORKS\py\projects\MultiStageAnodizingApp\test\MutiStageAnodizingApp_V1" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\WORKS\py\projects\MultiStageAnodizingApp\MutiStageAnodizingApp_Versions" />
-      <recent name="E:\WORKS\py\projects\MultiStageAnodizingApp\MutiStageAnodizingApp_V1\V2" />
-      <recent name="E:\WORKS\py\projects\MultiStageAnodizingApp\MutiStageAnodizingApp_V1\V1" />
-      <recent name="E:\WORKS\py\projects\MultiStageAnodizingApp\MutiStageAnodizingApp_V1" />
-      <recent name="E:\WORKS\py\projects\MultiStageAnodizingApp\test\MutiStageAnodizingApp_V1\test_datas" />
+      <recent name="E:\WORKS\py\projects\MultiStageAnodizingApp\test\draws\uml\data_flow_diagram" />
+      <recent name="E:\WORKS\py\projects\MultiStageAnodizingApp\test\draws" />
+      <recent name="E:\WORKS\py\projects\MultiStageAnodizingApp\test\draws\uml\uml_moduls" />
+      <recent name="E:\WORKS\py\projects\MultiStageAnodizingApp\test\draws\uml" />
+      <recent name="E:\WORKS\py\projects\MultiStageAnodizingApp\test" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
-    <configuration name="MutiStageAnodizingApp_V2_10" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.run_experiments">
+    <configuration name="experiment_parameters_collection" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MultiStageAnodizingApp" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -113,58 +159,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_10.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="MutiStageAnodizingApp_V2_9" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="MultiStageAnodizingApp" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2/MutiStageAnodizingApp_V2_9.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="batch_experiment_runner" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="MultiStageAnodizingApp" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/batch_experiment_runner.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/experiment_parameters_collection.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -219,21 +219,65 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="run_experiments" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MultiStageAnodizingApp" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/run_experiments.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="system_workflow_design" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MultiStageAnodizingApp" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/draws/system_design/system_workflow_design" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/draws/system_design/system_workflow_design/system_workflow_design.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.run_experiments" />
+        <item itemvalue="Python.experiment_parameters_collection" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.gui" />
-        <item itemvalue="Python.batch_experiment_runner" />
-        <item itemvalue="Python.MutiStageAnodizingApp_V2_10" />
-        <item itemvalue="Python.MutiStageAnodizingApp_V2_9" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.17011.127" />
-        <option value="bundled-python-sdk-48aec45f0201-7e9c3bbb6e34-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.17011.127" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-WS-241.15989.105" />
       </set>
     </attachedChunks>
   </component>
@@ -265,7 +309,14 @@
       <workItem from="1734534241440" duration="17000" />
       <workItem from="1734602011526" duration="1885000" />
       <workItem from="1734603923631" duration="150000" />
-      <workItem from="1734604082833" duration="6318000" />
+      <workItem from="1734604082833" duration="6482000" />
+      <workItem from="1734613042941" duration="1989000" />
+      <workItem from="1734659319109" duration="7754000" />
+      <workItem from="1734679041406" duration="1402000" />
+      <workItem from="1734693422126" duration="3793000" />
+      <workItem from="1734750076976" duration="2271000" />
+      <workItem from="1734867534673" duration="4000" />
+      <workItem from="1734916156710" duration="46000" />
     </task>
     <task id="LOCAL-00001" summary="Initial implementation of MutiStageAnodizingApp&#10;&#10;- Developed the basic GUI using tkinter.&#10;- Implemented core logic for multi-stage anodizing process control.&#10;- Integrated basic functionality for serial port communication.&#10;- Basic setup for voltage and current control based on user input.&#10;- Note: Unit tests have not been implemented yet.">
       <option name="closed" value="true" />
@@ -459,7 +510,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734609488869</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="README.md 添加">
+      <option name="closed" value="true" />
+      <created>1734610497268</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1734610497268</updated>
+    </task>
+    <task id="LOCAL-00026" summary="README.md 添加">
+      <option name="closed" value="true" />
+      <created>1734610556628</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1734610556628</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -501,39 +568,57 @@
     <MESSAGE value="Enhancements for StageManager module:&#10;- Added input validation for stage creation to ensure positive voltage and time values.&#10;- Improved error handling for invalid stage indices during deletion.&#10;- Added detailed docstrings for all methods.&#10;- Enhanced logging for better debugging and tracking of stage operations." />
     <MESSAGE value="Enhancements for StorageManager module:&#10;- Added storage path validation during initialization.&#10;- Improved error handling and logging for file operations.&#10;- Extended CSV fields to include control parameters for Feedforward and PID modes.&#10;- Added detailed docstrings for improved documentation.&#10;- Ensured proper resource cleanup during file close operations." />
     <MESSAGE value="Enhancements for exception handling function:&#10;- Improved logging of exception context and details.&#10;- Added debug-level stack trace logging using `exc_info` for better debugging.&#10;- Enhanced docstrings for clarity and maintainability." />
-    <option name="LAST_COMMIT_MESSAGE" value="Enhancements for exception handling function:&#10;- Improved logging of exception context and details.&#10;- Added debug-level stack trace logging using `exc_info` for better debugging.&#10;- Enhanced docstrings for clarity and maintainability." />
+    <MESSAGE value="README.md 添加" />
+    <option name="LAST_COMMIT_MESSAGE" value="README.md 添加" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$main.coverage" NAME="main Coverage Results" MODIFIED="1734533534076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$experimental_control_execution.coverage" NAME="experimental_control_execution Coverage Results" MODIFIED="1734695991166" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/draws/uml/data_flow_diagram/experimental_control_execution" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$modbus_test.coverage" NAME="modbus_test Coverage Results" MODIFIED="1734315351461" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V2_6__1_.coverage" NAME="MutiStageAnodizingApp_V2_6 (1) Coverage Results" MODIFIED="1734331927951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2" />
-    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V2_10.coverage" NAME="MutiStageAnodizingApp_V2_10 Coverage Results" MODIFIED="1734409670265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_2.coverage" NAME="MutiStageAnodizingApp_V1_2 Coverage Results" MODIFIED="1734328868606" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_V1" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$experiment_parameters_collection__1_.coverage" NAME="experiment_parameters_collection (1) Coverage Results" MODIFIED="1734663778507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$run_experiments.coverage" NAME="run_experiments Coverage Results" MODIFIED="1734926178718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$temp.coverage" NAME="temp Coverage Results" MODIFIED="1734693012349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$Drawing_feedback__1_.coverage" NAME="Drawing_feedback (1) Coverage Results" MODIFIED="1734659808469" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_3.coverage" NAME="MutiStageAnodizingApp_V1.3 Coverage Results" MODIFIED="1734312191751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_V1" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_3_test.coverage" NAME="MutiStageAnodizingApp_V1.3_test Coverage Results" MODIFIED="1734252092912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$test_connection.coverage" NAME="test_connection Coverage Results" MODIFIED="1734316741436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$system_architecture_design.coverage" NAME="system_architecture_design Coverage Results" MODIFIED="1734751106743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/draws/system_design/system_architecture_design" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_0__1_.coverage" NAME="MutiStageAnodizingApp_V1.0 (1) Coverage Results" MODIFIED="1734248193736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_V1" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$gui.coverage" NAME="gui Coverage Results" MODIFIED="1734916575038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MSAA_test1_0.coverage" NAME="MSAA_test1.0 Coverage Results" MODIFIED="1734242918420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_2__1_.coverage" NAME="MutiStageAnodizingApp_V1_2 (1) Coverage Results" MODIFIED="1734399247721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V1" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MSAA1_2.coverage" NAME="MSAA1.2 Coverage Results" MODIFIED="1734242277074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V2_9.coverage" NAME="MutiStageAnodizingApp_V2_9 Coverage Results" MODIFIED="1734409336286" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$experiment_parameters_collection.coverage" NAME="experiment_parameters_collection Coverage Results" MODIFIED="1734925585409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$serialwin32.coverage" NAME="serialwin32 Coverage Results" MODIFIED="1734327003878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv/Lib/site-packages/serial" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$add_stages_list_box_test.coverage" NAME="add_stages_list_box_test Coverage Results" MODIFIED="1734242160138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$experimental_parameter_generation.coverage" NAME="experimental_parameter_generation Coverage Results" MODIFIED="1734695701327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/draws/uml/experimental_parameter_generation" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$real_time_drawing.coverage" NAME="real-time_drawing Coverage Results" MODIFIED="1734696303482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/draws/uml/data_flow_diagram/real-time_drawing" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$main.coverage" NAME="main Coverage Results" MODIFIED="1734917851260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V2_10.coverage" NAME="MutiStageAnodizingApp_V2_10 Coverage Results" MODIFIED="1734409670265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$.coverage" NAME=" Coverage Results" MODIFIED="1734322571493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_V1" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V2_8.coverage" NAME="MutiStageAnodizingApp_V2_8 Coverage Results" MODIFIED="1734405966831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$Feedforward_Feedback_Voltage_Control.coverage" NAME="Feedforward_Feedback_Voltage_Control Coverage Results" MODIFIED="1734618937930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_0_test.coverage" NAME="MutiStageAnodizingApp_V1.0_test Coverage Results" MODIFIED="1734248049965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1/V1_0" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$system_workflow_design.coverage" NAME="system_workflow_design Coverage Results" MODIFIED="1734751715027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/draws/system_design/system_workflow_design" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp.coverage" NAME="MutiStageAnodizingApp Coverage Results" MODIFIED="1734239588583" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$experimental_results_analysis_and_optimization.coverage" NAME="experimental_results_analysis_and_optimization Coverage Results" MODIFIED="1734696645802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/draws/uml/data_flow_diagram/experimental_results_analysis_and_optimization" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$old_test.coverage" NAME="old_test Coverage Results" MODIFIED="1734315948173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_4.coverage" NAME="MutiStageAnodizingApp_V1.4 Coverage Results" MODIFIED="1734316937055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_V1" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_1.coverage" NAME="MutiStageAnodizingApp_V1_1 Coverage Results" MODIFIED="1734327857386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_V1" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$batch_experiment_runner.coverage" NAME="batch_experiment_runner Coverage Results" MODIFIED="1734504276766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$temp.coverage" NAME="temp Coverage Results" MODIFIED="1734251303299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1" />
-    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_3_test.coverage" NAME="MutiStageAnodizingApp_V1.3_test Coverage Results" MODIFIED="1734252092912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1" />
-    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_3.coverage" NAME="MutiStageAnodizingApp_V1.3 Coverage Results" MODIFIED="1734312191751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_V1" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_0.coverage" NAME="MutiStageAnodizingApp_V1_0 Coverage Results" MODIFIED="1734327707493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_V1" />
-    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$test_connection.coverage" NAME="test_connection Coverage Results" MODIFIED="1734316741436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1" />
-    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_0__1_.coverage" NAME="MutiStageAnodizingApp_V1.0 (1) Coverage Results" MODIFIED="1734248193736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_V1" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$temp__1_.coverage" NAME="temp (1) Coverage Results" MODIFIED="1734693850900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V2_7.coverage" NAME="MutiStageAnodizingApp_V2_7 Coverage Results" MODIFIED="1734400701583" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2" />
-    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$gui.coverage" NAME="gui Coverage Results" MODIFIED="1734531595443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_3_1_test.coverage" NAME="MutiStageAnodizingApp_V1.3.1_test Coverage Results" MODIFIED="1734253688024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1" />
-    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MSAA_test1_0.coverage" NAME="MSAA_test1.0 Coverage Results" MODIFIED="1734242918420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_2__1_.coverage" NAME="MutiStageAnodizingApp_V1_2 (1) Coverage Results" MODIFIED="1734399247721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V1" />
-    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MSAA1_2.coverage" NAME="MSAA1.2 Coverage Results" MODIFIED="1734242277074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$kp_effect_on_feedback_control.coverage" NAME="kp_effect_on_feedback_control Coverage Results" MODIFIED="1734659894699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$experiment_control_test.coverage" NAME="experiment_control_test Coverage Results" MODIFIED="1734242300099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_1_test.coverage" NAME="MutiStageAnodizingApp_V1.1_test Coverage Results" MODIFIED="1734251019200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MutiStageAnodizingApp_V1" />
     <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V1_5.coverage" NAME="MutiStageAnodizingApp_V1_5 Coverage Results" MODIFIED="1734325065632" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_V1" />
-    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$MutiStageAnodizingApp_V2_9.coverage" NAME="MutiStageAnodizingApp_V2_9 Coverage Results" MODIFIED="1734409336286" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MutiStageAnodizingApp_Versions/V2" />
-    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$serialwin32.coverage" NAME="serialwin32 Coverage Results" MODIFIED="1734327003878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv/Lib/site-packages/serial" />
-    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$add_stages_list_box_test.coverage" NAME="add_stages_list_box_test Coverage Results" MODIFIED="1734242160138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$experiment_parameters_csv__1_.coverage" NAME="experiment_parameters_csv (1) Coverage Results" MODIFIED="1734661575273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$uml_modules__1_.coverage" NAME="uml_modules (1) Coverage Results" MODIFIED="1734695150140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/draws/uml/uml_moduls" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$single_producer_multi_consumer_model.coverage" NAME="single_producer_multi_consumer_model Coverage Results" MODIFIED="1734694866892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/draws/uml/single_producer_multi_consumer_model" />
+    <SUITE FILE_PATH="coverage/MultiStageAnodizingApp$experiment_parameters_csv.coverage" NAME="experiment_parameters_csv Coverage Results" MODIFIED="1734659451662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -50,7 +50,6 @@ class ExperimentGUI:
     def create_widgets(self):
         """Create and layout the GUI components."""
 
-        # Helper to add labels and entries
         def add_label_and_entry(row, label_text, default_value=None, entry_var=None):
             label = tk.Label(self.root, text=label_text)
             label.grid(row=row, column=0, padx=5, pady=5, sticky="e")
@@ -71,8 +70,7 @@ class ExperimentGUI:
         self.label_voltage_start, self.entry_voltage_start = add_label_and_entry(1, "Initial Voltage (V):")
         self.label_voltage_end, self.entry_voltage_end = add_label_and_entry(2, "Termination Voltage (V):")
         self.label_time, self.entry_time = add_label_and_entry(3, "Set Time (s):")
-        self.label_sample_rate, self.entry_sample_rate = add_label_and_entry(4, "Sample Rate (Hz):",
-                                                                             Config.DEFAULT_SAMPLE_RATE)
+        self.label_sample_rate, self.entry_sample_rate = add_label_and_entry(4, "Sample Rate (Hz):", Config.DEFAULT_SAMPLE_RATE)
 
         # Control Mode
         tk.Label(self.root, text="Control Mode:").grid(row=5, column=0, padx=5, pady=5, sticky="e")
@@ -100,13 +98,10 @@ class ExperimentGUI:
         self.frame_buttons = tk.Frame(self.root)
         self.frame_buttons.grid(row=11, column=0, columnspan=3, padx=5, pady=5)
         tk.Button(self.frame_buttons, text="Add Stage", command=self.add_stage, width=15).pack(side="left", padx=5)
-        tk.Button(self.frame_buttons, text="Delete Selected Stage(s)", command=self.delete_stage, width=20).pack(
-            side="left", padx=5)
-        self.button_start = tk.Button(self.frame_buttons, text="Start Experiment", command=self.start_experiment,
-                                      width=15)
+        tk.Button(self.frame_buttons, text="Delete Selected Stage(s)", command=self.delete_stage, width=20).pack(side="left", padx=5)
+        self.button_start = tk.Button(self.frame_buttons, text="Start Experiment", command=self.start_experiment, width=15)
         self.button_start.pack(side="left", padx=5)
-        self.button_stop = tk.Button(self.frame_buttons, text="Stop Experiment", command=self.stop_experiment, width=15,
-                                     state="disabled")
+        self.button_stop = tk.Button(self.frame_buttons, text="Stop Experiment", command=self.stop_experiment, width=15, state="disabled")
         self.button_stop.pack(side="left", padx=5)
 
         # Stages Treeview
@@ -482,6 +477,54 @@ class ExperimentGUI:
         self.root.update_idletasks()
 
     # Helper methods
+    def _set_operative_mode(self, mode=1):
+        """
+        Set the operating mode of the power supply (e.g. enable or disable output).
+        mode: 1 for enable, 0 for disable.
+        """
+        try:
+            if self.serial_manager.power_supply:
+                self.serial_manager.power_supply.operative_mode(mode)
+                logging.info(f"Operative mode set to {mode}.")
+                return True
+            else:
+                logging.error("Power supply is not connected.")
+                self.update_status("Error: Power supply not connected.")
+                return False
+        except Exception as e:
+            logging.error(f"Failed to set operative mode: {e}")
+            self.update_status("Error: Failed to set operative mode.")
+            return False
+
+    def _initialize_and_start_experiment(self, strategy, sample_rate):
+        """
+        Initialize and start the experiment controller.
+        Args:
+            strategy: The control strategy to use (e.g., Linear, PID, Feedforward).
+            sample_rate: Sampling rate for the experiment.
+        """
+        try:
+            self.experiment_controller = ExperimentController(
+                serial_manager=self.serial_manager,
+                stage_manager=self.stage_manager,
+                storage_manager=self.storage_manager,
+                data_collector=self.data_collector,
+                plot_window=self.plot_window,
+                plot_stop_event=self.plot_stop_event,
+                storage_stop_event=self.storage_stop_event,
+                experiment_done_event=self.experiment_done_event,
+                control_strategy=strategy,
+                control_mode=self.combo_control_mode.get()
+            )
+
+            # Start the experiment
+            self.experiment_controller.start_experiment(sample_rate=sample_rate)
+            logging.info("Experiment started successfully.")
+        except Exception as e:
+            logging.error(f"Failed to initialize and start experiment: {e}")
+            self.update_status("Error: Failed to initialize and start experiment.")
+            raise
+
     def _safe_action(self, action, args=(), log_message="", success_message="", error_message=""):
         """
         Safely execute an action with logging and status updates.
