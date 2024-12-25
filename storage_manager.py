@@ -8,8 +8,8 @@ from experiment_data import ExperimentData
 
 class StorageManager:
     """
-    Storage Manager to handle data saving.
-    This class provides functionality to initialize, write to, and close a CSV storage file for experimental data.
+    Storage Manager to handle datasets saving.
+    This class provides functionality to initialize, write to, and close a CSV storage file for experimental datasets.
     """
 
     def __init__(self, storage_path):
@@ -17,7 +17,7 @@ class StorageManager:
         Initialize the StorageManager with a storage path.
 
         Args:
-            storage_path (str): The directory path where data will be saved.
+            storage_path (str): The directory path where datasets will be saved.
         """
         self.storage_path = storage_path
         self.file_path = None
@@ -29,7 +29,7 @@ class StorageManager:
         return self._is_data_saved
     def initialize_storage(self):
         """
-        Initialize the storage file for data saving.
+        Initialize the storage file for datasets saving.
 
         Returns:
             tuple: (bool, str) indicating success and a corresponding message.
@@ -63,10 +63,10 @@ class StorageManager:
 
     def store_data(self, experiment_data: ExperimentData):
         """
-        Store a single data record in the CSV file.
+        Store a single datasets record in the CSV file.
 
         Args:
-            experiment_data (ExperimentData): The data object to store.
+            experiment_data (ExperimentData): The datasets object to store.
 
         Raises:
             DataStorageError: If the storage is not initialized.
@@ -75,7 +75,7 @@ class StorageManager:
             raise DataStorageError("Storage not initialized")
 
         try:
-            # Write a row of data to the CSV file
+            # Write a row of datasets to the CSV file
             self.writer.writerow([
                 experiment_data.timestamp,
                 experiment_data.target_voltage,
@@ -91,8 +91,8 @@ class StorageManager:
             self._is_data_saved = True
             logging.debug(f"Data stored: {experiment_data}")
         except Exception as e:
-            logging.error(f"Error storing data: {e}")
-            raise DataStorageError(f"Failed to store data: {e}")
+            logging.error(f"Error storing datasets: {e}")
+            raise DataStorageError(f"Failed to store datasets: {e}")
 
     def close_storage(self):
         """

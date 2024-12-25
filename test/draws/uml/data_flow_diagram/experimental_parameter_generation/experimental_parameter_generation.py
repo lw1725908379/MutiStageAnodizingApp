@@ -11,12 +11,12 @@ dot.node("D", "Combine with Kp\nValues", shape="box", style="rounded,filled", co
 dot.node("E", "Generate\nExperiment Configurations", shape="box", style="rounded,filled", color="lightgrey")
 dot.node("F", "Write to CSV\nFile", shape="box", style="rounded,filled", color="lightgreen")
 
-# Add data flow directions
+# Add datasets flow directions
 dot.edges([
     ("A", "B"),  # Input parameters are used to generate voltage combinations
     ("B", "C"),  # Voltage combinations are used to calculate duration
     ("C", "D"),  # Duration is combined with Kp values
-    ("D", "E"),  # Combine all data to create experiment configurations
+    ("D", "E"),  # Combine all datasets to create experiment configurations
     ("E", "F"),  # Write the experiment configurations to a CSV file
 ])
 

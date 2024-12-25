@@ -1,0 +1,360 @@
+2024-12-24 15:17:07,202 - logs.logger - INFO - Starting the ML project pipeline...
+2024-12-24 15:17:07,202 - logs.logger - INFO - Loading and preprocessing data...
+2024-12-24 15:17:07,203 - ml_model.logs.logger - INFO - Starting data preprocessing...
+2024-12-24 15:17:07,203 - ml_model.logs.logger - INFO - Loading data from file: ml_model/datasets/feedback_data.csv
+2024-12-24 15:17:07,204 - logs.logger - ERROR - Error in preprocessing data: [Errno 2] No such file or directory: 'ml_model/datasets/feedback_data.csv'
+2024-12-24 15:19:38,963 - logs.logger - INFO - Starting the ML project pipeline...
+2024-12-24 15:19:38,963 - logs.logger - INFO - Loading and preprocessing data...
+2024-12-24 15:19:38,963 - logs.logger - INFO - Using file path: E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\ml_model\datasets\feedback_data.csv
+2024-12-24 15:19:38,964 - logs.logger - ERROR - Error in preprocessing data: Data file not found at: E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\ml_model\datasets\feedback_data.csv
+2024-12-24 15:20:31,630 - logs.logger - INFO - Starting the ML project pipeline...
+2024-12-24 15:20:31,630 - logs.logger - INFO - Loading and preprocessing data...
+2024-12-24 15:20:31,630 - logs.logger - INFO - Using file path: E:\datasets\feedback_data.csv
+2024-12-24 15:20:31,631 - logs.logger - ERROR - Error in preprocessing data: Data file not found at: E:\datasets\feedback_data.csv
+2024-12-24 15:20:50,717 - logs.logger - INFO - Starting the ML project pipeline...
+2024-12-24 15:20:50,717 - logs.logger - INFO - Loading and preprocessing data...
+2024-12-24 15:20:50,717 - logs.logger - INFO - Using file path: E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\ml_model\datasets\feedback_data.csv
+2024-12-24 15:20:50,717 - logs.logger - ERROR - Error in preprocessing data: Data file not found at: E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\ml_model\datasets\feedback_data.csv
+2024-12-24 15:22:25,655 - logs.logger - INFO - Starting the ML project pipeline...
+2024-12-24 15:22:25,655 - logs.logger - INFO - Loading and preprocessing data...
+2024-12-24 15:22:25,655 - logs.logger - INFO - Using file path: E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/datasets/feedback_data.csv
+2024-12-24 15:22:25,655 - ml_model.logs.logger - INFO - Starting data preprocessing...
+2024-12-24 15:22:25,655 - ml_model.logs.logger - INFO - Loading data from file: E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/datasets/feedback_data.csv
+2024-12-24 15:22:25,692 - ml_model.logs.logger - INFO - Data loaded successfully. Shape: (78900, 7)
+2024-12-24 15:22:25,696 - ml_model.logs.logger - INFO - Deriving additional features...
+2024-12-24 15:22:25,704 - ml_model.logs.logger - INFO - Additional features derived successfully.
+2024-12-24 15:22:25,705 - ml_model.logs.logger - INFO - Replacing invalid values with 0.
+2024-12-24 15:22:25,713 - ml_model.logs.logger - INFO - Invalid values handled successfully using strategy 'fill'.
+2024-12-24 15:22:25,713 - ml_model.logs.logger - INFO - Standardizing features...
+2024-12-24 15:22:25,735 - ml_model.logs.logger - INFO - Feature standardization completed.
+2024-12-24 15:22:25,736 - ml_model.logs.logger - INFO - Preprocessing completed successfully.
+2024-12-24 15:22:25,736 - logs.logger - INFO - Data preprocessing completed successfully.
+2024-12-24 15:22:25,736 - logs.logger - INFO - Visualizing data...
+2024-12-24 15:22:25,736 - logs.logger - INFO - Plotting feature distributions...
+2024-12-24 15:22:26,316 - logs.logger - INFO - Saved distribution plot for TargetVoltage to ml_model/outputs/visualizations\TargetVoltage_distribution.png
+2024-12-24 15:22:26,876 - logs.logger - INFO - Saved distribution plot for MeasuredVoltage to ml_model/outputs/visualizations\MeasuredVoltage_distribution.png
+2024-12-24 15:22:27,217 - logs.logger - INFO - Saved distribution plot for ControlSignal to ml_model/outputs/visualizations\ControlSignal_distribution.png
+2024-12-24 15:22:27,734 - logs.logger - INFO - Saved distribution plot for Sampling frequency to ml_model/outputs/visualizations\Sampling frequency_distribution.png
+2024-12-24 15:22:28,190 - logs.logger - INFO - Saved distribution plot for Ramp-up rate to ml_model/outputs/visualizations\Ramp-up rate_distribution.png
+2024-12-24 15:22:28,502 - logs.logger - INFO - Saved distribution plot for Timestamp to ml_model/outputs/visualizations\Timestamp_distribution.png
+2024-12-24 15:22:29,023 - logs.logger - INFO - Saved distribution plot for VoltageError to ml_model/outputs/visualizations\VoltageError_distribution.png
+2024-12-24 15:22:29,501 - logs.logger - INFO - Saved distribution plot for VoltageChangeRate to ml_model/outputs/visualizations\VoltageChangeRate_distribution.png
+2024-12-24 15:22:29,905 - logs.logger - INFO - Saved distribution plot for TimeDifference to ml_model/outputs/visualizations\TimeDifference_distribution.png
+2024-12-24 15:22:30,531 - logs.logger - INFO - Saved distribution plot for RelativeResponseRate to ml_model/outputs/visualizations\RelativeResponseRate_distribution.png
+2024-12-24 15:22:31,106 - logs.logger - INFO - Saved distribution plot for ControlSignalChangeRate to ml_model/outputs/visualizations\ControlSignalChangeRate_distribution.png
+2024-12-24 15:22:31,158 - logs.logger - INFO - Plotting correlation heatmap...
+2024-12-24 15:22:31,541 - logs.logger - INFO - Saved correlation heatmap to ml_model/outputs/visualizations\correlation_heatmap.png
+2024-12-24 15:22:31,745 - logs.logger - INFO - Plotting feature-target relationships...
+2024-12-24 15:22:32,097 - logs.logger - INFO - Saved feature-target relationship plot for TargetVoltage to ml_model/outputs/visualizations\TargetVoltage_vs_FeedforwardKp.png
+2024-12-24 15:22:32,632 - logs.logger - INFO - Saved feature-target relationship plot for MeasuredVoltage to ml_model/outputs/visualizations\MeasuredVoltage_vs_FeedforwardKp.png
+2024-12-24 15:22:33,173 - logs.logger - INFO - Saved feature-target relationship plot for ControlSignal to ml_model/outputs/visualizations\ControlSignal_vs_FeedforwardKp.png
+2024-12-24 15:22:33,705 - logs.logger - INFO - Saved feature-target relationship plot for Sampling frequency to ml_model/outputs/visualizations\Sampling frequency_vs_FeedforwardKp.png
+2024-12-24 15:22:34,235 - logs.logger - INFO - Saved feature-target relationship plot for Ramp-up rate to ml_model/outputs/visualizations\Ramp-up rate_vs_FeedforwardKp.png
+2024-12-24 15:22:34,769 - logs.logger - INFO - Saved feature-target relationship plot for Timestamp to ml_model/outputs/visualizations\Timestamp_vs_FeedforwardKp.png
+2024-12-24 15:22:35,302 - logs.logger - INFO - Saved feature-target relationship plot for VoltageError to ml_model/outputs/visualizations\VoltageError_vs_FeedforwardKp.png
+2024-12-24 15:22:35,857 - logs.logger - INFO - Saved feature-target relationship plot for VoltageChangeRate to ml_model/outputs/visualizations\VoltageChangeRate_vs_FeedforwardKp.png
+2024-12-24 15:22:36,389 - logs.logger - INFO - Saved feature-target relationship plot for TimeDifference to ml_model/outputs/visualizations\TimeDifference_vs_FeedforwardKp.png
+2024-12-24 15:22:36,929 - logs.logger - INFO - Saved feature-target relationship plot for RelativeResponseRate to ml_model/outputs/visualizations\RelativeResponseRate_vs_FeedforwardKp.png
+2024-12-24 15:22:37,481 - logs.logger - INFO - Saved feature-target relationship plot for ControlSignalChangeRate to ml_model/outputs/visualizations\ControlSignalChangeRate_vs_FeedforwardKp.png
+2024-12-24 15:22:37,683 - logs.logger - INFO - Data visualization completed successfully.
+2024-12-24 15:22:37,683 - logs.logger - INFO - Splitting data into training and testing sets...
+2024-12-24 15:22:37,684 - ml_model.logs.logger - INFO - Starting dataset split...
+2024-12-24 15:22:37,698 - ml_model.logs.logger - INFO - Dataset split successfully: Training set size=63120, Testing set size=15780
+2024-12-24 15:22:37,698 - logs.logger - INFO - Data split completed: Training set size=63120, Testing set size=15780
+2024-12-24 15:22:37,698 - logs.logger - INFO - Training the model...
+2024-12-24 15:22:37,698 - ml_model.logs.logger - INFO - Starting model training...
+2024-12-24 15:22:37,699 - logs.logger - ERROR - Error in training the model: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2024-12-24 15:25:23,077 - logs.logger - INFO - Starting the ML project pipeline...
+2024-12-24 15:25:23,077 - logs.logger - INFO - Loading and preprocessing data...
+2024-12-24 15:25:23,078 - logs.logger - INFO - Using file path: E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/datasets/feedback_data.csv
+2024-12-24 15:25:23,078 - ml_model.logs.logger - INFO - Starting data preprocessing...
+2024-12-24 15:25:23,078 - ml_model.logs.logger - INFO - Loading data from file: E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/datasets/feedback_data.csv
+2024-12-24 15:25:23,110 - ml_model.logs.logger - INFO - Data loaded successfully. Shape: (78900, 7)
+2024-12-24 15:25:23,111 - ml_model.logs.logger - INFO - Deriving additional features...
+2024-12-24 15:25:23,118 - ml_model.logs.logger - INFO - Additional features derived successfully.
+2024-12-24 15:25:23,118 - ml_model.logs.logger - INFO - Replacing invalid values with 0.
+2024-12-24 15:25:23,127 - ml_model.logs.logger - INFO - Invalid values handled successfully using strategy 'fill'.
+2024-12-24 15:25:23,127 - ml_model.logs.logger - INFO - Standardizing features...
+2024-12-24 15:25:23,148 - ml_model.logs.logger - INFO - Feature standardization completed.
+2024-12-24 15:25:23,148 - ml_model.logs.logger - INFO - Preprocessing completed successfully.
+2024-12-24 15:25:23,148 - logs.logger - INFO - Data preprocessing completed successfully.
+2024-12-24 15:25:23,148 - logs.logger - INFO - Visualizing data...
+2024-12-24 15:25:23,148 - logs.logger - INFO - Plotting feature distributions...
+2024-12-24 15:25:23,695 - logs.logger - INFO - Saved distribution plot for TargetVoltage to ml_model/outputs/visualizations\TargetVoltage_distribution.png
+2024-12-24 15:25:24,210 - logs.logger - INFO - Saved distribution plot for MeasuredVoltage to ml_model/outputs/visualizations\MeasuredVoltage_distribution.png
+2024-12-24 15:25:24,541 - logs.logger - INFO - Saved distribution plot for ControlSignal to ml_model/outputs/visualizations\ControlSignal_distribution.png
+2024-12-24 15:25:25,035 - logs.logger - INFO - Saved distribution plot for Sampling frequency to ml_model/outputs/visualizations\Sampling frequency_distribution.png
+2024-12-24 15:25:25,439 - logs.logger - INFO - Saved distribution plot for Ramp-up rate to ml_model/outputs/visualizations\Ramp-up rate_distribution.png
+2024-12-24 15:25:25,707 - logs.logger - INFO - Saved distribution plot for Timestamp to ml_model/outputs/visualizations\Timestamp_distribution.png
+2024-12-24 15:25:26,216 - logs.logger - INFO - Saved distribution plot for VoltageError to ml_model/outputs/visualizations\VoltageError_distribution.png
+2024-12-24 15:25:26,693 - logs.logger - INFO - Saved distribution plot for VoltageChangeRate to ml_model/outputs/visualizations\VoltageChangeRate_distribution.png
+2024-12-24 15:25:27,232 - logs.logger - INFO - Saved distribution plot for TimeDifference to ml_model/outputs/visualizations\TimeDifference_distribution.png
+2024-12-24 15:25:27,857 - logs.logger - INFO - Saved distribution plot for RelativeResponseRate to ml_model/outputs/visualizations\RelativeResponseRate_distribution.png
+2024-12-24 15:25:28,428 - logs.logger - INFO - Saved distribution plot for ControlSignalChangeRate to ml_model/outputs/visualizations\ControlSignalChangeRate_distribution.png
+2024-12-24 15:25:28,480 - logs.logger - INFO - Plotting correlation heatmap...
+2024-12-24 15:25:28,849 - logs.logger - INFO - Saved correlation heatmap to ml_model/outputs/visualizations\correlation_heatmap.png
+2024-12-24 15:25:29,041 - logs.logger - INFO - Plotting feature-target relationships...
+2024-12-24 15:25:29,391 - logs.logger - INFO - Saved feature-target relationship plot for TargetVoltage to ml_model/outputs/visualizations\TargetVoltage_vs_FeedforwardKp.png
+2024-12-24 15:25:29,916 - logs.logger - INFO - Saved feature-target relationship plot for MeasuredVoltage to ml_model/outputs/visualizations\MeasuredVoltage_vs_FeedforwardKp.png
+2024-12-24 15:25:30,453 - logs.logger - INFO - Saved feature-target relationship plot for ControlSignal to ml_model/outputs/visualizations\ControlSignal_vs_FeedforwardKp.png
+2024-12-24 15:25:30,982 - logs.logger - INFO - Saved feature-target relationship plot for Sampling frequency to ml_model/outputs/visualizations\Sampling frequency_vs_FeedforwardKp.png
+2024-12-24 15:25:31,506 - logs.logger - INFO - Saved feature-target relationship plot for Ramp-up rate to ml_model/outputs/visualizations\Ramp-up rate_vs_FeedforwardKp.png
+2024-12-24 15:25:32,037 - logs.logger - INFO - Saved feature-target relationship plot for Timestamp to ml_model/outputs/visualizations\Timestamp_vs_FeedforwardKp.png
+2024-12-24 15:25:32,562 - logs.logger - INFO - Saved feature-target relationship plot for VoltageError to ml_model/outputs/visualizations\VoltageError_vs_FeedforwardKp.png
+2024-12-24 15:25:33,114 - logs.logger - INFO - Saved feature-target relationship plot for VoltageChangeRate to ml_model/outputs/visualizations\VoltageChangeRate_vs_FeedforwardKp.png
+2024-12-24 15:25:33,643 - logs.logger - INFO - Saved feature-target relationship plot for TimeDifference to ml_model/outputs/visualizations\TimeDifference_vs_FeedforwardKp.png
+2024-12-24 15:25:34,189 - logs.logger - INFO - Saved feature-target relationship plot for RelativeResponseRate to ml_model/outputs/visualizations\RelativeResponseRate_vs_FeedforwardKp.png
+2024-12-24 15:25:34,730 - logs.logger - INFO - Saved feature-target relationship plot for ControlSignalChangeRate to ml_model/outputs/visualizations\ControlSignalChangeRate_vs_FeedforwardKp.png
+2024-12-24 15:25:34,931 - logs.logger - INFO - Data visualization completed successfully.
+2024-12-24 15:25:34,931 - logs.logger - INFO - Splitting data into training and testing sets...
+2024-12-24 15:25:34,931 - ml_model.logs.logger - INFO - Starting dataset split...
+2024-12-24 15:25:34,942 - ml_model.logs.logger - INFO - Dataset split successfully: Training set size=63120, Testing set size=15780
+2024-12-24 15:25:34,942 - logs.logger - INFO - Data split completed: Training set size=63120, Testing set size=15780
+2024-12-24 15:25:34,942 - logs.logger - INFO - Training the model...
+2024-12-24 15:25:34,942 - logs.logger - INFO - Starting model training...
+2024-12-24 15:25:34,944 - logs.logger - INFO - Training data validation passed.
+2024-12-24 15:25:34,944 - logs.logger - INFO - Training data size: 63120 samples
+2024-12-24 15:25:34,944 - logs.logger - INFO - Parameter grid: {'n_estimators': [50, 100, 200], 'max_depth': [5, 10, 20], 'min_samples_split': [2, 5, 10]}
+2024-12-24 15:38:33,001 - logs.logger - INFO - Best parameters: {'max_depth': 20, 'min_samples_split': 10, 'n_estimators': 200}
+2024-12-24 15:38:33,001 - logs.logger - INFO - Best score: -0.00016062199242126396
+2024-12-24 15:38:33,001 - logs.logger - INFO - Model training completed.
+2024-12-24 15:38:33,001 - logs.logger - INFO - Saving the best model to ml_model/outputs/best_model.pkl
+2024-12-24 15:38:33,045 - logs.logger - INFO - Model saved successfully.
+2024-12-24 15:38:33,045 - logs.logger - INFO - Model training completed successfully.
+2024-12-24 15:38:33,045 - logs.logger - INFO - Evaluating the model...
+2024-12-24 15:38:33,185 - logs.logger - INFO - Model evaluation completed: MSE=0.00017167566820006907, R2=0.9997373926056938
+2024-12-24 15:38:33,185 - logs.logger - INFO - Visualizing model performance...
+2024-12-24 15:38:33,327 - logs.logger - INFO - Plotting predictions...
+2024-12-24 15:38:33,514 - logs.logger - INFO - Saved model performance plot to ml_model/outputs/visualizations\model_performance.png
+2024-12-24 15:38:33,663 - logs.logger - INFO - Model performance visualization completed successfully.
+2024-12-24 15:38:33,663 - logs.logger - INFO - ML project pipeline completed successfully.
+2024-12-24 15:55:25,820 - logs.logger - INFO - Starting the ML project pipeline...
+2024-12-24 15:55:25,820 - logs.logger - INFO - Loading and preprocessing data...
+2024-12-24 15:55:25,820 - logs.logger - INFO - Using file path: E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/datasets/feedback_data.csv
+2024-12-24 15:55:25,820 - ml_model.logs.logger - INFO - Starting data preprocessing...
+2024-12-24 15:55:25,820 - ml_model.logs.logger - INFO - Loading data from file: E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/datasets/feedback_data.csv
+2024-12-24 15:55:25,853 - ml_model.logs.logger - INFO - Data loaded successfully. Shape: (78900, 7)
+2024-12-24 15:55:25,855 - ml_model.logs.logger - INFO - Deriving additional features...
+2024-12-24 15:55:25,862 - ml_model.logs.logger - INFO - Additional features derived successfully.
+2024-12-24 15:55:25,862 - ml_model.logs.logger - INFO - Replacing invalid values with 0.
+2024-12-24 15:55:25,870 - ml_model.logs.logger - INFO - Invalid values handled successfully using strategy 'fill'.
+2024-12-24 15:55:25,871 - ml_model.logs.logger - INFO - Standardizing features...
+2024-12-24 15:55:25,892 - ml_model.logs.logger - INFO - Feature standardization completed.
+2024-12-24 15:55:25,893 - ml_model.logs.logger - INFO - Preprocessing completed successfully.
+2024-12-24 15:55:25,893 - logs.logger - INFO - Data preprocessing completed successfully.
+2024-12-24 15:55:25,893 - logs.logger - INFO - Visualizing data...
+2024-12-24 15:55:25,893 - logs.logger - INFO - Plotting feature distributions...
+2024-12-24 15:55:26,459 - logs.logger - INFO - Saved distribution plot for TargetVoltage to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\TargetVoltage_distribution.png
+2024-12-24 15:55:26,973 - logs.logger - INFO - Saved distribution plot for MeasuredVoltage to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\MeasuredVoltage_distribution.png
+2024-12-24 15:55:27,305 - logs.logger - INFO - Saved distribution plot for ControlSignal to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\ControlSignal_distribution.png
+2024-12-24 15:55:27,797 - logs.logger - INFO - Saved distribution plot for Sampling frequency to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\Sampling frequency_distribution.png
+2024-12-24 15:55:28,209 - logs.logger - INFO - Saved distribution plot for Ramp-up rate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\Ramp-up rate_distribution.png
+2024-12-24 15:55:28,483 - logs.logger - INFO - Saved distribution plot for Timestamp to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\Timestamp_distribution.png
+2024-12-24 15:55:29,016 - logs.logger - INFO - Saved distribution plot for VoltageError to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\VoltageError_distribution.png
+2024-12-24 15:55:29,491 - logs.logger - INFO - Saved distribution plot for VoltageChangeRate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\VoltageChangeRate_distribution.png
+2024-12-24 15:55:29,891 - logs.logger - INFO - Saved distribution plot for TimeDifference to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\TimeDifference_distribution.png
+2024-12-24 15:55:30,538 - logs.logger - INFO - Saved distribution plot for RelativeResponseRate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\RelativeResponseRate_distribution.png
+2024-12-24 15:55:31,116 - logs.logger - INFO - Saved distribution plot for ControlSignalChangeRate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\ControlSignalChangeRate_distribution.png
+2024-12-24 15:55:31,189 - logs.logger - INFO - Plotting correlation heatmap...
+2024-12-24 15:55:31,561 - logs.logger - INFO - Saved correlation heatmap to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\correlation_heatmap.png
+2024-12-24 15:55:31,774 - logs.logger - INFO - Plotting feature-target relationships...
+2024-12-24 15:55:32,140 - logs.logger - INFO - Saved feature-target relationship plot for TargetVoltage to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\TargetVoltage_vs_FeedforwardKp.png
+2024-12-24 15:55:32,685 - logs.logger - INFO - Saved feature-target relationship plot for MeasuredVoltage to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\MeasuredVoltage_vs_FeedforwardKp.png
+2024-12-24 15:55:33,219 - logs.logger - INFO - Saved feature-target relationship plot for ControlSignal to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\ControlSignal_vs_FeedforwardKp.png
+2024-12-24 15:55:33,752 - logs.logger - INFO - Saved feature-target relationship plot for Sampling frequency to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\Sampling frequency_vs_FeedforwardKp.png
+2024-12-24 15:55:34,282 - logs.logger - INFO - Saved feature-target relationship plot for Ramp-up rate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\Ramp-up rate_vs_FeedforwardKp.png
+2024-12-24 15:55:34,815 - logs.logger - INFO - Saved feature-target relationship plot for Timestamp to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\Timestamp_vs_FeedforwardKp.png
+2024-12-24 15:55:35,342 - logs.logger - INFO - Saved feature-target relationship plot for VoltageError to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\VoltageError_vs_FeedforwardKp.png
+2024-12-24 15:55:35,895 - logs.logger - INFO - Saved feature-target relationship plot for VoltageChangeRate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\VoltageChangeRate_vs_FeedforwardKp.png
+2024-12-24 15:55:36,428 - logs.logger - INFO - Saved feature-target relationship plot for TimeDifference to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\TimeDifference_vs_FeedforwardKp.png
+2024-12-24 15:55:36,965 - logs.logger - INFO - Saved feature-target relationship plot for RelativeResponseRate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\RelativeResponseRate_vs_FeedforwardKp.png
+2024-12-24 15:55:37,529 - logs.logger - INFO - Saved feature-target relationship plot for ControlSignalChangeRate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\ControlSignalChangeRate_vs_FeedforwardKp.png
+2024-12-24 15:55:37,739 - logs.logger - INFO - Data visualization completed successfully.
+2024-12-24 15:55:37,739 - logs.logger - INFO - Splitting data into training and testing sets...
+2024-12-24 15:55:37,739 - ml_model.logs.logger - INFO - Starting dataset split...
+2024-12-24 15:55:37,750 - ml_model.logs.logger - INFO - Dataset split successfully: Training set size=63120, Testing set size=15780
+2024-12-24 15:55:37,750 - logs.logger - INFO - Data split completed: Training set size=63120, Testing set size=15780
+2024-12-24 15:55:37,750 - logs.logger - INFO - Training the model...
+2024-12-24 15:55:37,750 - logs.logger - INFO - Starting model training...
+2024-12-24 15:55:37,751 - logs.logger - INFO - Training data validation passed.
+2024-12-24 15:55:37,751 - logs.logger - INFO - Training data size: 63120 samples
+2024-12-24 15:55:37,751 - logs.logger - INFO - Parameter grid: {'n_estimators': [50, 100, 200], 'max_depth': [5, 10, 20], 'min_samples_split': [2, 5, 10]}
+2024-12-24 15:57:53,317 - logs.logger - INFO - Starting the ML project pipeline...
+2024-12-24 15:57:53,317 - logs.logger - INFO - Loading and preprocessing data...
+2024-12-24 15:57:53,317 - logs.logger - INFO - Using file path: E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/datasets/feedback_data.csv
+2024-12-24 15:57:53,317 - ml_model.logs.logger - INFO - Starting data preprocessing...
+2024-12-24 15:57:53,317 - ml_model.logs.logger - INFO - Loading data from file: E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/datasets/feedback_data.csv
+2024-12-24 15:57:53,351 - ml_model.logs.logger - INFO - Data loaded successfully. Shape: (78900, 7)
+2024-12-24 15:57:53,352 - ml_model.logs.logger - INFO - Deriving additional features...
+2024-12-24 15:57:53,359 - ml_model.logs.logger - INFO - Additional features derived successfully.
+2024-12-24 15:57:53,359 - ml_model.logs.logger - INFO - Replacing invalid values with 0.
+2024-12-24 15:57:53,369 - ml_model.logs.logger - INFO - Invalid values handled successfully using strategy 'fill'.
+2024-12-24 15:57:53,370 - ml_model.logs.logger - INFO - Standardizing features...
+2024-12-24 15:57:53,391 - ml_model.logs.logger - INFO - Feature standardization completed.
+2024-12-24 15:57:53,392 - ml_model.logs.logger - INFO - Preprocessing completed successfully.
+2024-12-24 15:57:53,392 - logs.logger - INFO - Data preprocessing completed successfully.
+2024-12-24 15:57:53,392 - logs.logger - INFO - Visualizing data...
+2024-12-24 15:57:53,392 - logs.logger - INFO - Plotting feature distributions...
+2024-12-24 15:57:53,957 - logs.logger - INFO - Saved distribution plot for TargetVoltage to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\TargetVoltage_distribution.png
+2024-12-24 15:57:54,471 - logs.logger - INFO - Saved distribution plot for MeasuredVoltage to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\MeasuredVoltage_distribution.png
+2024-12-24 15:57:54,805 - logs.logger - INFO - Saved distribution plot for ControlSignal to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\ControlSignal_distribution.png
+2024-12-24 15:57:55,300 - logs.logger - INFO - Saved distribution plot for Sampling frequency to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\Sampling frequency_distribution.png
+2024-12-24 15:57:55,716 - logs.logger - INFO - Saved distribution plot for Ramp-up rate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\Ramp-up rate_distribution.png
+2024-12-24 15:57:55,990 - logs.logger - INFO - Saved distribution plot for Timestamp to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\Timestamp_distribution.png
+2024-12-24 15:57:56,504 - logs.logger - INFO - Saved distribution plot for VoltageError to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\VoltageError_distribution.png
+2024-12-24 15:57:57,014 - logs.logger - INFO - Saved distribution plot for VoltageChangeRate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\VoltageChangeRate_distribution.png
+2024-12-24 15:57:57,436 - logs.logger - INFO - Saved distribution plot for TimeDifference to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\TimeDifference_distribution.png
+2024-12-24 15:57:58,130 - logs.logger - INFO - Saved distribution plot for RelativeResponseRate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\RelativeResponseRate_distribution.png
+2024-12-24 15:57:58,707 - logs.logger - INFO - Saved distribution plot for ControlSignalChangeRate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\ControlSignalChangeRate_distribution.png
+2024-12-24 15:57:58,760 - logs.logger - INFO - Plotting correlation heatmap...
+2024-12-24 15:57:59,143 - logs.logger - INFO - Saved correlation heatmap to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\correlation_heatmap.png
+2024-12-24 15:57:59,363 - logs.logger - INFO - Plotting feature-target relationships...
+2024-12-24 15:57:59,730 - logs.logger - INFO - Saved feature-target relationship plot for TargetVoltage to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\TargetVoltage_vs_FeedforwardKp.png
+2024-12-24 15:58:00,265 - logs.logger - INFO - Saved feature-target relationship plot for MeasuredVoltage to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\MeasuredVoltage_vs_FeedforwardKp.png
+2024-12-24 15:58:00,822 - logs.logger - INFO - Saved feature-target relationship plot for ControlSignal to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\ControlSignal_vs_FeedforwardKp.png
+2024-12-24 15:58:01,368 - logs.logger - INFO - Saved feature-target relationship plot for Sampling frequency to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\Sampling frequency_vs_FeedforwardKp.png
+2024-12-24 15:58:01,915 - logs.logger - INFO - Saved feature-target relationship plot for Ramp-up rate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\Ramp-up rate_vs_FeedforwardKp.png
+2024-12-24 15:58:02,449 - logs.logger - INFO - Saved feature-target relationship plot for Timestamp to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\Timestamp_vs_FeedforwardKp.png
+2024-12-24 15:58:02,971 - logs.logger - INFO - Saved feature-target relationship plot for VoltageError to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\VoltageError_vs_FeedforwardKp.png
+2024-12-24 15:58:03,519 - logs.logger - INFO - Saved feature-target relationship plot for VoltageChangeRate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\VoltageChangeRate_vs_FeedforwardKp.png
+2024-12-24 15:58:04,048 - logs.logger - INFO - Saved feature-target relationship plot for TimeDifference to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\TimeDifference_vs_FeedforwardKp.png
+2024-12-24 15:58:04,595 - logs.logger - INFO - Saved feature-target relationship plot for RelativeResponseRate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\RelativeResponseRate_vs_FeedforwardKp.png
+2024-12-24 15:58:05,149 - logs.logger - INFO - Saved feature-target relationship plot for ControlSignalChangeRate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\ControlSignalChangeRate_vs_FeedforwardKp.png
+2024-12-24 15:58:05,339 - logs.logger - INFO - Data visualization completed successfully.
+2024-12-24 15:58:05,339 - logs.logger - INFO - Splitting data into training and testing sets...
+2024-12-24 15:58:05,339 - ml_model.logs.logger - INFO - Starting dataset split...
+2024-12-24 15:58:05,351 - ml_model.logs.logger - INFO - Dataset split successfully: Training set size=63120, Testing set size=15780
+2024-12-24 15:58:05,351 - logs.logger - INFO - Data split completed: Training set size=63120, Testing set size=15780
+2024-12-24 15:58:05,351 - logs.logger - INFO - Training the model...
+2024-12-24 15:58:05,351 - logs.logger - INFO - Starting model training...
+2024-12-24 15:58:05,352 - logs.logger - INFO - Training data validation passed.
+2024-12-24 15:58:05,353 - logs.logger - INFO - Training data size: 63120 samples
+2024-12-24 15:58:05,353 - logs.logger - INFO - Parameter grid: {'n_estimators': [50, 100, 200], 'max_depth': [5, 10, 20], 'min_samples_split': [2, 5, 10]}
+2024-12-24 16:11:08,305 - logs.logger - INFO - Best parameters: {'max_depth': 20, 'min_samples_split': 10, 'n_estimators': 200}
+2024-12-24 16:11:08,305 - logs.logger - INFO - Best score: -0.00016062199242126396
+2024-12-24 16:11:08,305 - logs.logger - INFO - Model training completed.
+2024-12-24 16:11:08,305 - logs.logger - INFO - Saving the best model to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/best_model.pkl
+2024-12-24 16:11:08,351 - logs.logger - INFO - Model saved successfully.
+2024-12-24 16:11:08,351 - logs.logger - INFO - Model training completed successfully.
+2024-12-24 16:11:08,351 - logs.logger - INFO - Evaluating the model...
+2024-12-24 16:11:08,494 - logs.logger - INFO - Model evaluation completed: MSE=0.00017167566820006907, R2=0.9997373926056938
+2024-12-24 16:11:08,494 - logs.logger - INFO - Visualizing model performance...
+2024-12-24 16:11:08,635 - logs.logger - INFO - Plotting predictions...
+2024-12-24 16:11:08,818 - logs.logger - INFO - Saved model performance plot to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\model_performance.png
+2024-12-24 16:11:08,945 - logs.logger - INFO - Model performance visualization completed successfully.
+2024-12-24 16:11:08,945 - logs.logger - INFO - ML project pipeline completed successfully.
+2024-12-24 16:18:05,052 - logs.logger - INFO - Starting the ML project pipeline...
+2024-12-24 16:18:05,053 - logs.logger - INFO - Loading and preprocessing data...
+2024-12-24 16:18:05,053 - logs.logger - INFO - Using file path: E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/datasets/feedback_data.csv
+2024-12-24 16:18:05,053 - ml_model.logs.logger - INFO - Starting data preprocessing...
+2024-12-24 16:18:05,053 - ml_model.logs.logger - INFO - Loading data from file: E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/datasets/feedback_data.csv
+2024-12-24 16:18:05,089 - ml_model.logs.logger - INFO - Data loaded successfully. Shape: (78900, 7)
+2024-12-24 16:18:05,091 - ml_model.logs.logger - INFO - Deriving additional features...
+2024-12-24 16:18:05,099 - ml_model.logs.logger - INFO - Additional features derived successfully.
+2024-12-24 16:18:05,099 - ml_model.logs.logger - INFO - Replacing invalid values with 0.
+2024-12-24 16:18:05,108 - ml_model.logs.logger - INFO - Invalid values handled successfully using strategy 'fill'.
+2024-12-24 16:18:05,109 - ml_model.logs.logger - INFO - Standardizing features...
+2024-12-24 16:18:05,131 - ml_model.logs.logger - INFO - Feature standardization completed.
+2024-12-24 16:18:05,132 - ml_model.logs.logger - INFO - Preprocessing completed successfully.
+2024-12-24 16:18:05,132 - logs.logger - INFO - Data preprocessing completed successfully.
+2024-12-24 16:18:05,132 - logs.logger - INFO - Visualizing data...
+2024-12-24 16:18:05,132 - ml_model.logs.logger - INFO - Plotting feature distributions...
+2024-12-24 16:18:05,704 - ml_model.logs.logger - INFO - Saved distribution plot for TargetVoltage to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\TargetVoltage_distribution.png
+2024-12-24 16:18:06,253 - ml_model.logs.logger - INFO - Saved distribution plot for MeasuredVoltage to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\MeasuredVoltage_distribution.png
+2024-12-24 16:18:06,609 - ml_model.logs.logger - INFO - Saved distribution plot for ControlSignal to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\ControlSignal_distribution.png
+2024-12-24 16:18:07,155 - ml_model.logs.logger - INFO - Saved distribution plot for Sampling frequency to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\Sampling frequency_distribution.png
+2024-12-24 16:18:07,605 - ml_model.logs.logger - INFO - Saved distribution plot for Ramp-up rate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\Ramp-up rate_distribution.png
+2024-12-24 16:18:07,901 - ml_model.logs.logger - INFO - Saved distribution plot for Timestamp to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\Timestamp_distribution.png
+2024-12-24 16:18:08,411 - ml_model.logs.logger - INFO - Saved distribution plot for VoltageError to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\VoltageError_distribution.png
+2024-12-24 16:18:08,922 - ml_model.logs.logger - INFO - Saved distribution plot for VoltageChangeRate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\VoltageChangeRate_distribution.png
+2024-12-24 16:18:09,334 - ml_model.logs.logger - INFO - Saved distribution plot for TimeDifference to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\TimeDifference_distribution.png
+2024-12-24 16:18:09,972 - ml_model.logs.logger - INFO - Saved distribution plot for RelativeResponseRate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\RelativeResponseRate_distribution.png
+2024-12-24 16:18:10,553 - ml_model.logs.logger - INFO - Saved distribution plot for ControlSignalChangeRate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\ControlSignalChangeRate_distribution.png
+2024-12-24 16:18:10,607 - ml_model.logs.logger - INFO - Plotting correlation heatmap...
+2024-12-24 16:18:10,994 - ml_model.logs.logger - INFO - Saved correlation heatmap to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\correlation_heatmap.png
+2024-12-24 16:18:11,204 - ml_model.logs.logger - INFO - Plotting feature-target relationships...
+2024-12-24 16:18:11,550 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for TargetVoltage to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\TargetVoltage_vs_FeedforwardKp.png
+2024-12-24 16:18:12,091 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for MeasuredVoltage to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\MeasuredVoltage_vs_FeedforwardKp.png
+2024-12-24 16:18:12,622 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for ControlSignal to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\ControlSignal_vs_FeedforwardKp.png
+2024-12-24 16:18:13,148 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for Sampling frequency to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\Sampling frequency_vs_FeedforwardKp.png
+2024-12-24 16:18:13,674 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for Ramp-up rate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\Ramp-up rate_vs_FeedforwardKp.png
+2024-12-24 16:18:14,200 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for Timestamp to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\Timestamp_vs_FeedforwardKp.png
+2024-12-24 16:18:14,734 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for VoltageError to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\VoltageError_vs_FeedforwardKp.png
+2024-12-24 16:18:15,295 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for VoltageChangeRate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\VoltageChangeRate_vs_FeedforwardKp.png
+2024-12-24 16:18:15,823 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for TimeDifference to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\TimeDifference_vs_FeedforwardKp.png
+2024-12-24 16:18:16,357 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for RelativeResponseRate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\RelativeResponseRate_vs_FeedforwardKp.png
+2024-12-24 16:18:16,897 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for ControlSignalChangeRate to E:/WORKS/py/projects/MultiStageAnodizingApp/ml_model/outputs/visualizations\ControlSignalChangeRate_vs_FeedforwardKp.png
+2024-12-24 16:18:17,087 - logs.logger - INFO - Data visualization completed successfully.
+2024-12-24 16:18:17,087 - logs.logger - INFO - Splitting data into training and testing sets...
+2024-12-24 16:18:17,087 - ml_model.logs.logger - INFO - Starting dataset split...
+2024-12-24 16:18:17,097 - ml_model.logs.logger - INFO - Dataset split successfully: Training set size=63120, Testing set size=15780
+2024-12-24 16:18:17,097 - logs.logger - INFO - Data split completed: Training set size=63120, Testing set size=15780
+2024-12-24 16:18:17,097 - logs.logger - INFO - Training the model...
+2024-12-24 16:18:17,097 - logs.logger - INFO - Starting model training...
+2024-12-24 16:18:17,099 - logs.logger - INFO - Training data validation passed.
+2024-12-24 16:18:17,099 - logs.logger - INFO - Training data size: 63120 samples
+2024-12-24 16:18:17,099 - logs.logger - INFO - Parameter grid: {'n_estimators': [50, 100, 200], 'max_depth': [5, 10, 20], 'min_samples_split': [2, 5, 10]}
+2024-12-24 16:31:20,016 - logs.logger - INFO - Starting the ML project pipeline...
+2024-12-24 16:31:20,016 - logs.logger - INFO - Loading and preprocessing data...
+2024-12-24 16:31:20,016 - logs.logger - INFO - Using file path: E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\datasets\feedback_data.csv
+2024-12-24 16:31:20,016 - ml_model.logs.logger - INFO - Starting data preprocessing...
+2024-12-24 16:31:20,016 - ml_model.logs.logger - INFO - Loading data from file: E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\datasets\feedback_data.csv
+2024-12-24 16:31:20,052 - ml_model.logs.logger - INFO - Data loaded successfully. Shape: (78900, 7)
+2024-12-24 16:31:20,054 - ml_model.logs.logger - INFO - Deriving additional features...
+2024-12-24 16:31:20,063 - ml_model.logs.logger - INFO - Additional features derived successfully.
+2024-12-24 16:31:20,063 - ml_model.logs.logger - INFO - Replacing invalid values with 0.
+2024-12-24 16:31:20,073 - ml_model.logs.logger - INFO - Invalid values handled successfully using strategy 'fill'.
+2024-12-24 16:31:20,074 - ml_model.logs.logger - INFO - Standardizing features...
+2024-12-24 16:31:20,100 - ml_model.logs.logger - INFO - Feature standardization completed.
+2024-12-24 16:31:20,101 - ml_model.logs.logger - INFO - Preprocessing completed successfully.
+2024-12-24 16:31:20,101 - logs.logger - INFO - Data preprocessing completed successfully.
+2024-12-24 16:31:20,101 - logs.logger - INFO - Visualizing data...
+2024-12-24 16:31:20,101 - ml_model.logs.logger - INFO - Plotting feature distributions...
+2024-12-24 16:31:20,689 - ml_model.logs.logger - INFO - Saved distribution plot for TargetVoltage to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\TargetVoltage_distribution.png
+2024-12-24 16:31:21,225 - ml_model.logs.logger - INFO - Saved distribution plot for MeasuredVoltage to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\MeasuredVoltage_distribution.png
+2024-12-24 16:31:21,565 - ml_model.logs.logger - INFO - Saved distribution plot for ControlSignal to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\ControlSignal_distribution.png
+2024-12-24 16:31:22,081 - ml_model.logs.logger - INFO - Saved distribution plot for Sampling frequency to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\Sampling frequency_distribution.png
+2024-12-24 16:31:22,502 - ml_model.logs.logger - INFO - Saved distribution plot for Ramp-up rate to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\Ramp-up rate_distribution.png
+2024-12-24 16:31:22,780 - ml_model.logs.logger - INFO - Saved distribution plot for Timestamp to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\Timestamp_distribution.png
+2024-12-24 16:31:23,312 - ml_model.logs.logger - INFO - Saved distribution plot for VoltageError to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\VoltageError_distribution.png
+2024-12-24 16:31:23,818 - ml_model.logs.logger - INFO - Saved distribution plot for VoltageChangeRate to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\VoltageChangeRate_distribution.png
+2024-12-24 16:31:24,243 - ml_model.logs.logger - INFO - Saved distribution plot for TimeDifference to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\TimeDifference_distribution.png
+2024-12-24 16:31:24,877 - ml_model.logs.logger - INFO - Saved distribution plot for RelativeResponseRate to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\RelativeResponseRate_distribution.png
+2024-12-24 16:31:25,454 - ml_model.logs.logger - INFO - Saved distribution plot for ControlSignalChangeRate to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\ControlSignalChangeRate_distribution.png
+2024-12-24 16:31:25,527 - ml_model.logs.logger - INFO - Plotting correlation heatmap...
+2024-12-24 16:31:25,900 - ml_model.logs.logger - INFO - Saved correlation heatmap to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\correlation_heatmap.png
+2024-12-24 16:31:26,094 - ml_model.logs.logger - INFO - Plotting feature-target relationships...
+2024-12-24 16:31:26,432 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for TargetVoltage to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\TargetVoltage_vs_FeedforwardKp.png
+2024-12-24 16:31:26,959 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for MeasuredVoltage to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\MeasuredVoltage_vs_FeedforwardKp.png
+2024-12-24 16:31:27,496 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for ControlSignal to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\ControlSignal_vs_FeedforwardKp.png
+2024-12-24 16:31:28,025 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for Sampling frequency to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\Sampling frequency_vs_FeedforwardKp.png
+2024-12-24 16:31:28,545 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for Ramp-up rate to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\Ramp-up rate_vs_FeedforwardKp.png
+2024-12-24 16:31:29,073 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for Timestamp to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\Timestamp_vs_FeedforwardKp.png
+2024-12-24 16:31:29,602 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for VoltageError to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\VoltageError_vs_FeedforwardKp.png
+2024-12-24 16:31:30,170 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for VoltageChangeRate to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\VoltageChangeRate_vs_FeedforwardKp.png
+2024-12-24 16:31:30,703 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for TimeDifference to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\TimeDifference_vs_FeedforwardKp.png
+2024-12-24 16:31:31,235 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for RelativeResponseRate to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\RelativeResponseRate_vs_FeedforwardKp.png
+2024-12-24 16:31:31,783 - ml_model.logs.logger - INFO - Saved feature-target relationship plot for ControlSignalChangeRate to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\ControlSignalChangeRate_vs_FeedforwardKp.png
+2024-12-24 16:31:32,002 - logs.logger - INFO - Data visualization completed successfully.
+2024-12-24 16:31:32,003 - logs.logger - INFO - Splitting data into training and testing sets...
+2024-12-24 16:31:32,003 - ml_model.logs.logger - INFO - Starting dataset split...
+2024-12-24 16:31:32,014 - ml_model.logs.logger - INFO - Dataset split successfully: Training set size=63120, Testing set size=15780
+2024-12-24 16:31:32,014 - logs.logger - INFO - Data split completed: Training set size=63120, Testing set size=15780
+2024-12-24 16:31:32,014 - logs.logger - INFO - Training the model...
+2024-12-24 16:31:32,014 - logs.logger - INFO - Starting model training...
+2024-12-24 16:31:32,015 - logs.logger - INFO - Training data validation passed.
+2024-12-24 16:31:32,015 - logs.logger - INFO - Training data size: 63120 samples
+2024-12-24 16:31:32,015 - logs.logger - INFO - Parameter grid: {'n_estimators': [50, 100, 200], 'max_depth': [5, 10, 20], 'min_samples_split': [2, 5, 10]}
+2024-12-24 16:44:44,711 - logs.logger - INFO - Best parameters: {'max_depth': 20, 'min_samples_split': 10, 'n_estimators': 200}
+2024-12-24 16:44:44,711 - logs.logger - INFO - Best score: -0.00016062199242126396
+2024-12-24 16:44:44,711 - logs.logger - INFO - Model training completed.
+2024-12-24 16:44:44,711 - logs.logger - INFO - Saving the best model to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\best_model.pkl
+2024-12-24 16:44:44,753 - logs.logger - INFO - Model saved successfully.
+2024-12-24 16:44:44,753 - logs.logger - INFO - Model training completed successfully.
+2024-12-24 16:44:44,753 - logs.logger - INFO - Evaluating the model...
+2024-12-24 16:44:44,893 - logs.logger - INFO - Model evaluation completed: MSE=0.00017167566820006907, R2=0.9997373926056938
+2024-12-24 16:44:44,893 - logs.logger - INFO - Visualizing model performance...
+2024-12-24 16:44:45,034 - ml_model.logs.logger - INFO - Plotting predictions...
+2024-12-24 16:44:45,215 - ml_model.logs.logger - INFO - Saved model performance plot to E:\WORKS\py\projects\MultiStageAnodizingApp\ml_model\outputs\visualizations\model_performance.png
+2024-12-24 16:44:45,363 - logs.logger - INFO - Model performance visualization completed successfully.
+2024-12-24 16:44:45,363 - logs.logger - INFO - ML project pipeline completed successfully.

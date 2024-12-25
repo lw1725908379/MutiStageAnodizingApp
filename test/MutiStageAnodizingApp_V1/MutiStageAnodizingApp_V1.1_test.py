@@ -72,7 +72,7 @@ class ExperimentGUI:
         self.serial_obj = None
         self.power_supply = None  # Placeholder for power supply object
         self.is_experiment_running = False  # Flag to prevent multiple experiments
-        self.data_queue = queue.Queue()  # Queue for storing experimental data
+        self.data_queue = queue.Queue()  # Queue for storing experimental datasets
         self.experiment_done_event = threading.Event()  # Event to signal when experiment is done
         self.stage_done_event = threading.Event()  # Event to signal when stage is done
         self.stages = []  # Initialize stages list
@@ -113,7 +113,7 @@ class ExperimentGUI:
         self.entry_sample_rate.grid(row=4, column=1, padx=5, pady=5)
         self.entry_sample_rate.insert(0, str(Config.DEFAULT_SAMPLE_RATE))
 
-        # Path selection for data storage
+        # Path selection for datasets storage
         self.label_storage_path = tk.Label(root, text="Storage Path:")
         self.label_storage_path.grid(row=5, column=0, padx=5, pady=5)
 
@@ -184,7 +184,7 @@ class ExperimentGUI:
         experiment_thread.start()
 
     def run_experiment(self):
-        """Run the experiment and collect data"""
+        """Run the experiment and collect datasets"""
         try:
             for stage in self.stages:
                 voltage_start = stage["voltage_start"]
@@ -200,12 +200,12 @@ class ExperimentGUI:
                     voltage = voltage_start + voltage_increment * elapsed_time / sample_rate
                     self.power_supply.V(voltage)
 
-                    # Simulate data collection at specified sample rate
-                    self.data_queue.put([voltage, 0.0, 0.0])  # Collect simulated data (voltage, current, power)
+                    # Simulate datasets collection at specified sample rate
+                    self.data_queue.put([voltage, 0.0, 0.0])  # Collect simulated datasets (voltage, current, power)
                     time.sleep(1.0 / sample_rate)
 
                 self.stage_done_event.set()  # Signal that the stage is done
-                self.stage_done_event.wait()  # Wait for consumer to process data before continuing
+                self.stage_done_event.wait()  # Wait for consumer to process datasets before continuing
 
         finally:
             # Mark the experiment as complete

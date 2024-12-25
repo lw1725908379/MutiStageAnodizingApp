@@ -233,7 +233,7 @@ class ExperimentGUI:
         # List to store experiment stages
         self.stages = []
 
-        # Queues for storing experimental data
+        # Queues for storing experimental datasets
         self.plot_queue = queue.Queue()
         self.storage_queue = queue.Queue()
 
@@ -293,7 +293,7 @@ class ExperimentGUI:
         self.entry_sample_rate.grid(row=4, column=1, padx=5, pady=5, sticky='w')
         self.entry_sample_rate.insert(0, str(Config.DEFAULT_SAMPLE_RATE))  # Default value: 10 Hz
 
-        # Path selection for data storage
+        # Path selection for datasets storage
         self.label_storage_path = tk.Label(root, text="Storage Path:")
         self.label_storage_path.grid(row=5, column=0, padx=5, pady=5, sticky='e')
 
@@ -388,7 +388,7 @@ class ExperimentGUI:
                 self.power_supply = None
 
     def browse_storage_path(self):
-        """Browse for the folder where data will be saved."""
+        """Browse for the folder where datasets will be saved."""
         folder_selected = filedialog.askdirectory()
         if folder_selected:
             self.entry_storage_path.delete(0, tk.END)
@@ -466,7 +466,7 @@ class ExperimentGUI:
             return False
 
     def storage_consumer(self):
-        """Consumer thread that writes data to CSV."""
+        """Consumer thread that writes datasets to CSV."""
         while not self.storage_stop_event.is_set():
             try:
                 timestamp, voltage, current = self.storage_queue.get(timeout=0.1)
@@ -481,17 +481,17 @@ class ExperimentGUI:
                 break
 
     def collect_data_for_stage(self, stage, sample_interval):
-        """Collect data for a given stage."""
+        """Collect datasets for a given stage."""
         voltage = self.power_supply.V()
         current = self.power_supply.A()
         timestamp = time.time()
 
-        # Put data into both queues
+        # Put datasets into both queues
         self.plot_queue.put((timestamp, voltage, current))
         self.storage_queue.put((timestamp, voltage, current))
 
     def collect_data(self, sample_rate):
-        """Collect data for the experiment stages."""
+        """Collect datasets for the experiment stages."""
         sample_interval = 1.0 / sample_rate  # Calculate time interval for each sample
 
         for stage in self.stages:
@@ -503,7 +503,7 @@ class ExperimentGUI:
                 # Virtual mode: set the stage in MockPowerSupply
                 self.power_supply.set_stage(voltage_start, voltage_end, duration, sample_interval)
 
-                # Collect data during the duration
+                # Collect datasets during the duration
                 num_samples = int(duration * sample_rate)
                 for _ in range(num_samples):
                     voltage = self.power_supply.V()
@@ -586,7 +586,7 @@ class ExperimentGUI:
         self.storage_thread = threading.Thread(target=self.storage_consumer, daemon=True)
         self.storage_thread.start()
 
-        # Start data collection thread
+        # Start datasets collection thread
         threading.Thread(target=self.collect_data, args=(sample_rate,), daemon=True).start()
 
         # Start a thread to monitor experiment completion
@@ -608,7 +608,7 @@ class ExperimentGUI:
         if self.storage_file is not None:
             self.storage_file.close()
 
-        # Save the collected data to CSV is already handled by the storage consumer
+        # Save the collected datasets to CSV is already handled by the storage consumer
 
         self.is_experiment_running = False
         messagebox.showinfo("Experiment Complete", "实验已完成，数据已保存。")

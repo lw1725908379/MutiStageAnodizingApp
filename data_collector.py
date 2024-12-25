@@ -6,7 +6,7 @@ from experiment_data import ExperimentData
 
 
 class DataCollector:
-    """Data Collector for collecting and storing data."""
+    """Data Collector for collecting and storing datasets."""
 
     def __init__(self, power_supply, storage_manager, plot_queue=None, max_queue_size=1000):
         """
@@ -14,8 +14,8 @@ class DataCollector:
 
         Args:
             power_supply: The power supply instance for reading voltage and current.
-            storage_manager: The storage manager instance for storing collected data.
-            plot_queue: A queue for passing data to the plotting system (optional).
+            storage_manager: The storage manager instance for storing collected datasets.
+            plot_queue: A queue for passing datasets to the plotting system (optional).
             max_queue_size: Maximum size of the storage queue.
         """
         self.power_supply = power_supply
@@ -28,40 +28,40 @@ class DataCollector:
         logging.info("DataCollector initialized and storage worker thread started.")
 
     def _storage_worker(self):
-        """Worker thread for storing data."""
+        """Worker thread for storing datasets."""
         logging.info("Storage worker thread has started.")
         while self.is_running or not self.storage_queue.empty():
             try:
-                # Wait for data from the queue with a timeout
+                # Wait for datasets from the queue with a timeout
                 data = self.storage_queue.get(timeout=0.1)
                 if data is None:  # Sentinel value to stop the thread
                     logging.info("Storage worker received sentinel. Exiting.")
                     break
 
-                # Store data using the storage manager
+                # Store datasets using the storage manager
                 self.storage_manager.store_data(data)
                 logging.debug(f"Data successfully stored: {data}")
 
                 # Mark the task as done
                 self.storage_queue.task_done()
             except queue.Empty:
-                # Timeout waiting for data; continue checking the `is_running` flag
+                # Timeout waiting for datasets; continue checking the `is_running` flag
                 continue
             except DataStorageError as e:
-                logging.error(f"Error storing data: {e}")
+                logging.error(f"Error storing datasets: {e}")
             except Exception as e:
                 logging.error(f"Unexpected error in storage worker: {e}")
         logging.info("Storage worker thread has stopped.")
 
     def collect_data_for_stage(self, experiment_data: ExperimentData):
         """
-        Collect data from the power supply and enqueue for plotting and storage.
+        Collect datasets from the power supply and enqueue for plotting and storage.
 
         Args:
-            experiment_data: An instance of ExperimentData containing the data to be collected.
+            experiment_data: An instance of ExperimentData containing the datasets to be collected.
         """
         try:
-            # Enqueue data for plotting (if plot_queue is provided)
+            # Enqueue datasets for plotting (if plot_queue is provided)
             if self.plot_queue is not None:
                 self.plot_queue.put_nowait((
                     experiment_data.timestamp,
@@ -70,13 +70,13 @@ class DataCollector:
                 ))
                 logging.debug("Data enqueued for plotting.")
 
-            # Enqueue data for storage
+            # Enqueue datasets for storage
             self.storage_queue.put_nowait(experiment_data)
             logging.debug(f"Data enqueued for storage: {experiment_data}. Queue size: {self.storage_queue.qsize()}")
         except queue.Full:
-            logging.warning("Storage queue is full. Dropping data to prevent blocking.")
+            logging.warning("Storage queue is full. Dropping datasets to prevent blocking.")
         except Exception as e:
-            logging.exception(f"Error collecting data for stage: {e}")
+            logging.exception(f"Error collecting datasets for stage: {e}")
 
     def close(self):
         """Close the storage worker and wait for it to finish."""

@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 @dataclass
 class ExperimentData:
-    """Data structure to hold experiment data for collection and storage."""
+    """Data structure to hold experiment datasets for collection and storage."""
     timestamp: float
     target_voltage: float
     measured_voltage: float

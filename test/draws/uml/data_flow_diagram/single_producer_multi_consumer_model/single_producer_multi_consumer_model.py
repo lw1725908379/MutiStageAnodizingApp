@@ -23,5 +23,5 @@ dot.edge('Q1', 'C1', label='Stored in CSV', fontsize='12')
 dot.edge('Q1', 'C2', label='Realtime Plot', fontsize='12')
 
 # Render the graph to file
-file_path = '/mnt/data/single_producer_multi_consumer_high_res'
+file_path = '/mnt/datasets/single_producer_multi_consumer_high_res'
 dot.render(file_path, format='png', cleanup=True)

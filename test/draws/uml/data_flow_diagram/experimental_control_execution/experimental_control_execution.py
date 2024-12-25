@@ -13,14 +13,14 @@ dot.node("F", "Storage Manager", shape="ellipse", style="filled", color="lightgr
 dot.node("G", "Plot Window", shape="ellipse", style="filled", color="lightgreen")
 dot.node("H", "Execute Experiment", shape="box", style="rounded,filled", color="lightblue")
 
-# Add data flow directions
+# Add datasets flow directions
 dot.edges([
     ("A", "B"),  # Load parameters to initialize components
     ("B", "C"),  # Initialize experiment controller
     ("C", "D"),  # Controller interacts with control strategy
-    ("C", "E"),  # Controller interacts with data collector
-    ("E", "F"),  # Data collector stores data in storage manager
-    ("E", "G"),  # Data collector sends data to plot window for visualization
+    ("C", "E"),  # Controller interacts with datasets collector
+    ("E", "F"),  # Data collector stores datasets in storage manager
+    ("E", "G"),  # Data collector sends datasets to plot window for visualization
     ("C", "H"),  # Controller executes the experiment
 ])
 

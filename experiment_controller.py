@@ -23,7 +23,7 @@ class ExperimentController:
         self.control_mode = control_mode
 
     def collect_data_with_sample_rate(self, sample_rate):
-        """Collect data at a specified sample rate using the chosen control strategy."""
+        """Collect datasets at a specified sample rate using the chosen control strategy."""
         try:
             for stage_idx, stage in enumerate(self.stage_manager.get_stages(), start=1):
                 voltage_start = stage["voltage_start"]
@@ -49,7 +49,7 @@ class ExperimentController:
                     control_signal = self.control_strategy.update(measured_voltage)
                     self.serial_manager.power_supply.set_voltage(control_signal)
 
-                    # Collect data
+                    # Collect datasets
                     self.data_collector.collect_data_for_stage(
                         ExperimentData(
                             timestamp=time.time(),
@@ -72,12 +72,12 @@ class ExperimentController:
                     if sleep_time > 0:
                         time.sleep(sleep_time)
 
-                logging.info(f"Completed data collection for stage {stage_idx}.")
+                logging.info(f"Completed datasets collection for stage {stage_idx}.")
 
             logging.info("Experiment completed.")
             self.experiment_done_event.set()
         except Exception as e:
-            logging.error(f"Error during data collection: {e}")
+            logging.error(f"Error during datasets collection: {e}")
             self.experiment_done_event.set()
 
     def start_experiment(self, sample_rate):
@@ -91,7 +91,7 @@ class ExperimentController:
 
         logging.info("Starting experiment...")
 
-        # Start data collection thread
+        # Start datasets collection thread
         data_thread = threading.Thread(target=self.collect_data_with_sample_rate, args=(sample_rate,), daemon=True)
         data_thread.start()
         logging.info("Data collection thread started.")

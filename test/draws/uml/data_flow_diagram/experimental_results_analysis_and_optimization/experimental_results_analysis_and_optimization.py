@@ -12,10 +12,10 @@ dot.node("E", "Analysis Module", shape="ellipse", style="filled", color="lightgr
 dot.node("F", "Optimization Algorithm", shape="ellipse", style="filled", color="lightyellow")
 dot.node("G", "Updated Parameters", shape="box", style="rounded,filled", color="lightblue")
 
-# Add data flow directions
-dot.edge("A", "B", label="Control Signals")                # Experiment Controller triggers data collection
+# Add datasets flow directions
+dot.edge("A", "B", label="Control Signals")                # Experiment Controller triggers datasets collection
 dot.edge("B", "C", label="Collected Data")                 # Data collected is passed to the Storage Manager
-dot.edge("C", "D", label="Save to Database")               # Storage Manager saves data to the database
+dot.edge("C", "D", label="Save to Database")               # Storage Manager saves datasets to the database
 dot.edge("D", "E", label="Load Data for Analysis")         # Data from the database is sent to the Analysis Module
 dot.edge("E", "F", label="Analysis Results")               # Analysis Module generates results for optimization
 dot.edge("F", "G", label="Optimized Parameters")           # Optimization Algorithm generates updated parameters

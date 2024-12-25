@@ -10,7 +10,7 @@ import tkinter as tk
 from matplotlib.ticker import FuncFormatter
 
 class PlotWindow:
-    """Plot Window for real-time data plotting."""
+    """Plot Window for real-time datasets plotting."""
 
     def __init__(self, master, plot_queue):
         self.master = master
@@ -69,11 +69,11 @@ class PlotWindow:
         logging.debug("PlotWindow initialized and plot update scheduled.")
 
     def _update_plot(self):
-        """Fetch data from queue and update the plot."""
+        """Fetch datasets from queue and update the plot."""
         try:
             while not self.plot_queue.empty():
                 timestamp, voltage, current = self.plot_queue.get_nowait()
-                logging.debug(f"PlotWindow received data: {timestamp}, {voltage}, {current}")
+                logging.debug(f"PlotWindow received datasets: {timestamp}, {voltage}, {current}")
 
                 with self.lock:  # Ensure thread safety
                     if self.start_time is None:

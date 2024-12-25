@@ -13,15 +13,15 @@ dot.node("F", "PlotWindow", shape="box", style="rounded,filled", color="lightblu
 dot.node("G", "ControlStrategy", shape="box", style="rounded,filled", color="lightblue")
 dot.node("H", "PowerSupply", shape="box", style="rounded,filled", color="lightblue")
 
-# Add data flow directions
+# Add datasets flow directions
 dot.edges([
     ("A", "B"),  # GUI sends user inputs to ExperimentController
     ("B", "G"),  # ExperimentController calls ControlStrategy
     ("B", "C"),  # ExperimentController communicates with SerialManager
     ("C", "H"),  # SerialManager interacts with PowerSupply
-    ("H", "D"),  # PowerSupply sends data to DataCollector
-    ("D", "E"),  # DataCollector sends data to StorageManager
-    ("D", "F"),  # DataCollector sends data to PlotWindow for real-time visualization
+    ("H", "D"),  # PowerSupply sends datasets to DataCollector
+    ("D", "E"),  # DataCollector sends datasets to StorageManager
+    ("D", "F"),  # DataCollector sends datasets to PlotWindow for real-time visualization
     ("B", "D"),  # ExperimentController manages DataCollector
     ("G", "B"),  # ControlStrategy sends feedback signals to ExperimentController
 ])

@@ -11,11 +11,11 @@ dot.node("D", "Plot Window", shape="ellipse", style="filled", color="lightgreen"
 dot.node("E", "Data Processor", shape="ellipse", style="filled", color="lightblue")
 dot.node("F", "Plot Refresh Loop", shape="box", style="rounded,filled", color="lightgrey")
 
-# Add data flow directions
-dot.edge("A", "B", label="Trigger Data Collection")  # Experiment controller triggers data collection
-dot.edge("B", "C", label="Collected Data")          # Data collector places data in plotting queue
-dot.edge("C", "E", label="Dequeued Data")           # Plotting queue sends data to data processor
-dot.edge("E", "D", label="Processed Data")          # Data processor sends processed data to the plot window
+# Add datasets flow directions
+dot.edge("A", "B", label="Trigger Data Collection")  # Experiment controller triggers datasets collection
+dot.edge("B", "C", label="Collected Data")          # Data collector places datasets in plotting queue
+dot.edge("C", "E", label="Dequeued Data")           # Plotting queue sends datasets to datasets processor
+dot.edge("E", "D", label="Processed Data")          # Data processor sends processed datasets to the plot window
 dot.edge("D", "F", label="Plot Commands")           # Plot window executes real-time plot updates
 
 # Render the image

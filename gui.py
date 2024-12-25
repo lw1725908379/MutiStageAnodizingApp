@@ -297,7 +297,7 @@ class ExperimentGUI:
             if not self._initialize_storage_manager(storage_path):
                 return
 
-            # Initialize data collector
+            # Initialize datasets collector
             self.data_collector = DataCollector(self.serial_manager.power_supply, self.storage_manager, self.plot_queue)
 
             # Create and show plot window
@@ -347,7 +347,7 @@ class ExperimentGUI:
             # Wait for storage thread to finish
             self._wait_for_storage_thread()
 
-            # Close data collector
+            # Close datasets collector
             self._close_data_collector()
 
             # Update experiment state and button states
@@ -374,8 +374,8 @@ class ExperimentGUI:
             self._handle_experiment_completion()
 
             # Notify user and update status
-            messagebox.showinfo("Experiment Completed", "Experiment completed and data saved.")
-            self.update_status("Experiment completed and data saved.")
+            messagebox.showinfo("Experiment Completed", "Experiment completed and datasets saved.")
+            self.update_status("Experiment completed and datasets saved.")
         except Exception as e:
             logging.error(f"Error during experiment monitoring: {e}")
             self.update_status("Error: Experiment monitoring failed.")
@@ -429,7 +429,7 @@ class ExperimentGUI:
                     logging.info("Storage consumer thread stopped.")
                     self.update_status("Storage consumer thread stopped.")
 
-                # Close data collector
+                # Close datasets collector
                 if self.data_collector:
                     self.data_collector.close()
                     logging.info("Data collector closed.")
@@ -573,9 +573,9 @@ class ExperimentGUI:
                 self.experiment_controller.is_experiment_running = False
                 self.update_status("Experiment stopped.")
 
-            # Close data collector
+            # Close datasets collector
             if self.data_collector:
-                logging.info("Closing data collector.")
+                logging.info("Closing datasets collector.")
                 self.data_collector.close()
 
             # Close storage manager
@@ -613,7 +613,7 @@ class ExperimentGUI:
         logging.info("Experiment buttons reset to default state.")
 
     def _close_data_collector(self):
-        """Close the data collector."""
+        """Close the datasets collector."""
         if self.data_collector:
             self.data_collector.close()
             logging.info("Data collector closed.")
@@ -811,3 +811,27 @@ class ExperimentGUI:
         self.entry_storage_path.delete(0, tk.END)
         self.entry_storage_path.insert(0, path)
         logging.info(f"Storage path updated to: {path}")
+
+    def _start_monitor_thread(self):
+        """启动一个后台线程来监控实验状态。"""
+        monitor_thread = threading.Thread(target=self.monitor_experiment, daemon=True)
+        monitor_thread.start()
+        logging.info("监控线程已启动。")
+
+    def monitor_experiment(self):
+        """Monitor the experiment for completion."""
+        try:
+            # 等待实验完成
+            self.experiment_controller.monitor_experiment()
+            logging.info("实验完成信号已接收。")
+
+            # 执行实验后清理
+            self._handle_experiment_completion()
+
+            # 通知用户并更新状态
+            messagebox.showinfo("实验完成", "实验已完成并保存了数据集。")
+            self.update_status("实验已完成并保存了数据集。")
+        except Exception as e:
+            logging.error(f"实验监控过程中出错: {e}")
+            self.update_status("Error: Experiment monitoring failed.")
+            handle_exception(e, context="Monitoring experiment")

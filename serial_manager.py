@@ -62,3 +62,7 @@ class SerialManager:
             self.power_supply = None
         else:
             logging.warning("No active Modbus client connection to close.")
+
+
+
+
